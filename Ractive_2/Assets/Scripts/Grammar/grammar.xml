@@ -1,0 +1,156 @@
+﻿<grammar version="1.0" xml:lang="en-US" tag-format="semantics/1.0" root="topLevel"
+ xmlns="http://www.w3.org/2001/06/grammar">
+
+	<rule id="topLevel">
+		<one-of>
+			<item>
+				<ruleref uri="#MoveTo" />
+			</item>
+			<item>
+				<ruleref uri="#MoveBack" />
+			</item>
+			<item>
+				<ruleref uri="#Start" />
+			</item>
+			<item>
+				<ruleref uri="#Stop" />
+			</item>
+			<item>
+				<ruleref uri="#DecreaseWalkingSpeed" />
+			</item>
+			<item>
+				<ruleref uri="#IncreaseWalkingSpeed" />
+			</item>
+		</one-of>
+	</rule>
+
+	<rule id="Start" scope="public">
+		<example> action </example>
+		<example> start </example>
+		<example> go ahead </example>
+
+		<item repeat="0-1"> please </item>
+		<one-of>
+			<item> go ahead </item>
+			<item> action </item>
+			<item> start </item>
+			<item> play </item>
+		</one-of>
+		<item repeat="0-1"> please </item>
+		<item>
+			<tag> out.Action = "startChoreography"; </tag>
+		</item>
+	</rule>
+
+	<rule id="Stop" scope="public">
+		<example> cut </example>
+		<example> stop </example>
+		<example> halt </example>
+
+		<item repeat="0-1"> please </item>
+		<one-of>
+			<item> cut </item>
+			<item> stop </item>
+			<item> halt </item>
+			<item> hold on </item>
+		</one-of>
+		<item repeat="0-1"> please </item>
+		<item>
+			<tag> out.Action = "stopChoreography"; </tag>
+		</item>
+	</rule>
+
+	<rule id="MoveTo" scope="public">
+		<example> please move to this position </example>
+		<example> go there </example>
+		<example> go over there please </example>
+
+		<item repeat="0-1"> please </item>
+		<ruleref uri="#MovementCmd"/>
+		<item repeat="0-1"> to this </item>
+		<ruleref uri="#Location"/>
+		<item repeat="0-1"> please </item>
+		<item>
+			<tag> out.Action = "moveToPosition"; </tag>
+		</item>
+	</rule>
+
+	<rule id="MoveBack" scope="public">
+		<example> please go back </example>
+		<example> walk back please </example>
+
+		<item repeat="0-1"> please </item>
+		<ruleref uri="#MovementCmd"/>
+		<item repeat="0-1"> back </item>
+		<item repeat="0-1"> please </item>
+		<item>
+			<tag> out.Action = "moveToPreviousPosition"; </tag>
+		</item>
+	</rule>
+
+	<rule id="DecreaseWalkingSpeed" scope="public">
+		<example> please move slower </example>
+		<example> walk not so fast </example>
+		<example> go slowly please </example>
+
+		<item repeat="0-1"> please </item>
+		<ruleref uri="#MovementCmd"/>
+		<ruleref uri="#DecreaseVelocity_Adj"/>
+		<item repeat="0-1"> please </item>
+		<item>
+			<tag> out.Action = "changeWalkingSpeedToSlow"; </tag>
+		</item>
+	</rule>
+
+	<rule id="IncreaseWalkingSpeed" scope="public">
+		<example> please move faster </example>
+		<example> walk not so slow </example>
+		<example> go quickly please </example>
+
+		<item repeat="0-1"> please </item>
+		<ruleref uri="#MovementCmd"/>
+		<ruleref uri="#IncreaseVelocity_Adj"/>
+		<item repeat="0-1"> please </item>
+		<item>
+			<tag> out.Action = "changeWalkingSpeedToFast"; </tag>
+		</item>
+	</rule>
+
+	<rule id = "MovementCmd">
+		<one-of>
+			<item> go </item>
+			<item> move </item>
+			<item> walk </item>
+			<item> run </item>
+		</one-of>
+	</rule>
+
+	<rule id = "Location">
+		<one-of>
+			<item> there </item>
+			<item> over there </item>
+			<item> place </item>
+			<item> spot </item>
+			<item> location </item>
+		</one-of>
+	</rule>
+
+	<rule id = "DecreaseVelocity_Adj">
+		<one-of>
+			<item> slowly </item>
+			<item> not so fast </item>
+			<item> slower </item>
+			<item> slow </item>
+		</one-of>
+	</rule>
+
+	<rule id = "IncreaseVelocity_Adj">
+		<one-of>
+			<item> quickly </item>
+			<item> not so slow </item>
+			<item> faster </item>
+			<item> fast </item>
+		</one-of>
+	</rule>
+
+</grammar>
