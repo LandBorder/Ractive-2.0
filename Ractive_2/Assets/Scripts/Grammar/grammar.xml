@@ -21,6 +21,9 @@
 			<item>
 				<ruleref uri="#IncreaseWalkingSpeed" />
 			</item>
+			<item>
+				<ruleref uri="#SetLines" />
+			</item>
 		</one-of>
 	</rule>
 
@@ -114,6 +117,56 @@
 		<item>
 			<tag> out.Action = "changeWalkingSpeedToFast"; </tag>
 		</item>
+	</rule>
+
+	<rule id="SetLines" scope="public">
+		<example> please recite the blade runner monologue </example>
+		<example> play the saint crispins day speech please </example>
+		<example> try tears in rain </example>
+
+		<item repeat="0-1"> please </item>
+		<ruleref uri="#SpeakingCmd"/>
+		<item repeat="0-1"> the </item>
+		<ruleref uri="#Monologues_Obj"/> <tag> out.AudioClip = rules.Monologues_Obj.Speech; </tag>
+		<item repeat="0-1">
+			<ruleref uri="#TextType_Noun"/>
+		</item>
+		<item repeat="0-1"> please </item>
+	</rule>
+
+	<rule id = "Monologues_Obj">
+		<one-of>
+			<item>
+				blade runner <tag> out.Speech = "tearsInRain"; </tag> 
+			</item>
+			<item>
+				tears in rain <tag> out.Speech = "tearsInRain"; </tag> 
+			</item>
+			<item>
+				saint crispins day <tag> out.Speech = "stCrispinsDay"; </tag> 
+			</item>
+			<item> 
+				henry the fifth <tag> out.Speech = "stCrispinsDay"; </tag> 
+			</item>
+		</one-of>
+	</rule>
+
+	<rule id = "SpeakingCmd">
+		<one-of>
+			<item> say </item>
+			<item> play </item>
+			<item> recite </item>
+			<item> try </item>
+		</one-of>
+	</rule>
+
+	<rule id = "TextType_Noun">
+		<one-of>
+			<item> monologue </item>
+			<item> speech </item>
+			<item> text </item>
+			<item> lines </item>
+		</one-of>
 	</rule>
 
 	<rule id = "MovementCmd">
