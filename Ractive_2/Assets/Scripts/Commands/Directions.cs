@@ -5,35 +5,57 @@ using UnityEngine.AI;
 
 public class Directions : MonoBehaviour, InstructionSet
 {
-    private DataManager _dataManager = new DataManager();
-    public NavMeshAgent navMeshAgent;
+    private ChoreographyHandler _choreographyHandler = new ChoreographyHandler();
 
-    public void AddToChoreography()
+    public NavMeshAgent navMeshAgent;
+    public AudioSource audioSource;
+
+    public void AddSpeechToChoreography()
     {
-        Debug.Log("Adding direction to choreography.");
+        Debug.Log("Adding lines to choreography.");
     }
 
     public void MoveToPosition()
     {
         Debug.Log("Moving to position.");
-        _dataManager.Load();
-        navMeshAgent.SetDestination(_dataManager.storyBeat.targetPosition);
+        _choreographyHandler.Load("tears_in_rain");
+        navMeshAgent.SetDestination(_choreographyHandler.currentStoryBeat.targetPosition);
+
+        
     }
 
     public void StartChoreography()
     {
         Debug.Log("Action!");
+
+        _choreographyHandler.Load("tears_in_rain");
+
+        audioSource.clip = _choreographyHandler.currentStoryBeat.speechAudioClip;
+
+        if (!audioSource.isPlaying)
+        {
+            audioSource.Play();
+        }
+
+        navMeshAgent.SetDestination(_choreographyHandler.currentStoryBeat.targetPosition);
+
     }
 
     public void StopChoreography()
     {
         Debug.Log("Cut!");
+
+        if (audioSource.isPlaying)
+        {
+            audioSource.Stop();
+        }
+
         navMeshAgent.SetDestination(navMeshAgent.transform.position);
     }
 
     public void MoveToPreviousPosition()
     {
-        _dataManager.Load();
-        navMeshAgent.SetDestination(_dataManager.storyBeat.previousPosition);
+        _choreographyHandler.Load("tears_in_rain");
+        navMeshAgent.SetDestination(_choreographyHandler.currentStoryBeat.previousPosition);
     }
 }

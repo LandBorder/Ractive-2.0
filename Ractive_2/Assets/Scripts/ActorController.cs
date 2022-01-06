@@ -6,7 +6,7 @@ using System.IO;
 
 public class ActorController : MonoBehaviour
 {
-    private DataManager _dataManager = new DataManager();
+    private StoryBeatHandler _storyBeatHandler = new StoryBeatHandler();
 
     public Directions directions;
     Invoker invoker;
@@ -20,6 +20,8 @@ public class ActorController : MonoBehaviour
 
     MovementStrategy movementStrategy;
 
+    public AudioHandler audioHandler;
+
     void Start()
     {
         movementStrategy = new AnimationDrivenMovementStrategy(navMeshAgent, xrCamera, thirdPersonCharacter);
@@ -30,7 +32,17 @@ public class ActorController : MonoBehaviour
         phraseRecognizer.OnPhraseRecognized += PhraseRecognizer_OnPhraseRecognized;
         phraseRecognizer.Start();
 
-        _dataManager.Load();
+        //ChoreographyHandler ch = new ChoreographyHandler();
+        //ch.Load("tears_in_rain");
+        //ch.AddStoryBeat("storybeat_1");
+        //ch.AddStoryBeat(ch.currentStoryBeat);
+        /*ch.PrintStoryBeatList();
+        Debug.Log(ch.currentStoryBeat.name);
+        ch.NextStoryBeat();
+        Debug.Log(ch.currentStoryBeat.name);*/
+        //ch.NewStoryBeat();
+
+        //ch.Save();
     }
 
     void Update()
@@ -43,7 +55,7 @@ public class ActorController : MonoBehaviour
         ActionCommand actionCommand = new ActionCommand(directions);
         CutCommand cutCommand = new CutCommand(directions);
         MoveToPositionCommand moveToPositionCommand = new MoveToPositionCommand(directions);
-        AddToChoreographyCommand addToChoreographyCommand = new AddToChoreographyCommand(directions);
+        AddSpeechToChoreographyCommand addSpeechToChoreographyCommand = new AddSpeechToChoreographyCommand(directions);
 
         string grammarTag = null;
 
@@ -82,6 +94,14 @@ public class ActorController : MonoBehaviour
                     break;
                 case "changeWalkingSpeedToFast":
                     thirdPersonCharacter.m_onlyWalkingSpeed = false;
+                    break;
+                case "tears_in_rain":
+                    // TODO: Load "tears_in_rain" choreography
+                    //       
+                    audioHandler.SetAudioClip(grammarTag);
+                    break;
+                case "stCrispinsDay":
+                    audioHandler.SetAudioClip(grammarTag);
                     break;
 
             }

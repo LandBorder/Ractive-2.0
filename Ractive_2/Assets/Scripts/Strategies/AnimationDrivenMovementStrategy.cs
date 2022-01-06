@@ -2,13 +2,15 @@ using UnityEngine.AI;
 using UnityStandardAssets.Characters.ThirdPerson;
 using UnityEngine;
 
+// TODO: Rework hard coded choreography path
+
 // The classical Strategy Pattern is not able to use strategies that need different parameters.
 // Therfore an extend version of the pattern was implemented using a Parameter class.
 // "Extending the Strategy Pattern for parameterized Algorithms" https://hillside.net/plop/2010/papers/sobajic.pdf
 
 public class AnimationDrivenMovementStrategy : MovementStrategy
 {
-    private DataManager _dataManager = new DataManager();
+    private ChoreographyHandler _choreographyHandler = new ChoreographyHandler();
     public AnimationDrivenMovementStrategy(NavMeshAgent agent, Camera camera, ThirdPersonCharacter character)
     {
         parameters = new Parameter[3];
@@ -41,10 +43,10 @@ public class AnimationDrivenMovementStrategy : MovementStrategy
 
             if (Physics.Raycast(ray, out hit))
             {
-                _dataManager.Load();
-                _dataManager.storyBeat.previousPosition = navMeshAgent.transform.position;
-                _dataManager.storyBeat.targetPosition = hit.point;
-                _dataManager.Save();
+                _choreographyHandler.Load("tears_in_rain");
+                _choreographyHandler.currentStoryBeat.previousPosition = navMeshAgent.transform.position;
+                _choreographyHandler.currentStoryBeat.targetPosition = hit.point;
+                _choreographyHandler.Save();
             }
         }
 

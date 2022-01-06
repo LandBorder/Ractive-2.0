@@ -8,6 +8,6 @@ public interface InstructionSet
     public void StopChoreography();
     public void MoveToPosition();
     public void MoveToPreviousPosition();
-    public void AddToChoreography();
+    public void AddSpeechToChoreography();
 
 }

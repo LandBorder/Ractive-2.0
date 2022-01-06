@@ -137,10 +137,10 @@
 	<rule id = "Monologues_Obj">
 		<one-of>
 			<item>
-				blade runner <tag> out.Speech = "tearsInRain"; </tag> 
+				blade runner <tag> out.Speech = "tears_in_rain"; </tag> 
 			</item>
 			<item>
-				tears in rain <tag> out.Speech = "tearsInRain"; </tag> 
+				tears in rain <tag> out.Speech = "tears_in_rain"; </tag> 
 			</item>
 			<item>
 				saint crispins day <tag> out.Speech = "stCrispinsDay"; </tag> 
