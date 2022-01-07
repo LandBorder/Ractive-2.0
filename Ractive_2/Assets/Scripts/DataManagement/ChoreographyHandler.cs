@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Runtime.Serialization.Formatters.Binary;
 using UnityEngine;
+using UnityEngine.AI;
 
 [System.Serializable]
 
@@ -37,7 +38,9 @@ public class ChoreographyHandler : MonoBehaviour
         {
             storyBeatList = choreography.storyBeatList;
             currentStoryBeat = storyBeatList.First();
-        }   
+        }
+
+        //PrintStoryBeatList();
     }
 
     private string ReadFromFile(string fileName)
@@ -50,6 +53,10 @@ public class ChoreographyHandler : MonoBehaviour
             Debug.LogWarning("Creating new choreography!");
 
             choreography.screenplay = _fileName.Replace(".json", "");
+
+            // TODO: Add Audio Clip to choreography 
+            //string audioPath = Directory.GetCurrentDirectory() + "/Assets/Audio/" + choreography.screenplay + ".wav";
+
             NewStoryBeat();
             Save();
              
@@ -109,6 +116,8 @@ public class ChoreographyHandler : MonoBehaviour
             {
                 currentStoryBeat = storyBeatList.First();
             }
+
+            Debug.Log("StoryBeat " + storyBeatName + " added.");
         }
         else
         {
@@ -172,6 +181,31 @@ public class ChoreographyHandler : MonoBehaviour
         storyBeatHandler = new StoryBeatHandler();
         string newStoryBeat = storyBeatHandler.CreateNewStoryBeat(storyBeatName);
         AddStoryBeat(newStoryBeat);
+    }
+
+    public void Execute(GameObject actor)
+    {
+        // TODO: ExecuteCurrentStoryBeat and set next one until all have been executed.
+
+        PrintStoryBeatList();
+        foreach (StoryBeat storyBeat in storyBeatList)
+        {
+            Debug.Log("Executing StoryBeat: " + storyBeat.name);
+            ExecuteStoryBeat(actor, storyBeat);
+        }
+
+        Debug.Log("Finished executing StoryBeats");
+    }
+
+    public void ExecuteStoryBeat(GameObject actor, StoryBeat storyBeat)
+    {
+        NavMeshAgent navMeshAgent = actor.GetComponent(typeof(NavMeshAgent)) as NavMeshAgent;
+        navMeshAgent.SetDestination(storyBeat.targetPosition);
+
+        while (!navMeshAgent.pathPending && navMeshAgent.remainingDistance < 0.5f)
+        {
+
+        }
     }
 
     private string GetFilePath()

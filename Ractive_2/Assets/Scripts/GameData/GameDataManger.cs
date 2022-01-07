@@ -3,15 +3,18 @@ using UnityEngine;
 
 public class GameDataManger : MonoBehaviour
 {
-    private string _fileName = "GameData.json";
     private GameData _gameData;
+    private bool _choreographyHandlerIsSet = false;
 
     public ChoreographyHandler choreographyHandler;
 
-    
     public void Save()
     {
-        choreographyHandler.Save();
+        if(_choreographyHandlerIsSet)
+        {
+            choreographyHandler.Save();
+        }
+
         string json = JsonUtility.ToJson(_gameData);
         WriteToFile(json);
     }
@@ -28,6 +31,7 @@ public class GameDataManger : MonoBehaviour
     public void SetChoreography(string choreographyName)
     {
         choreographyHandler.Load(choreographyName);
+        _choreographyHandlerIsSet = true;
         Save();
     }
 
@@ -55,9 +59,9 @@ public class GameDataManger : MonoBehaviour
         {
             Debug.LogWarning("GameData file not found!");
             Debug.LogWarning("Creating new Game Data!");
-            _gameData.test = "hi";
-            _gameData.currentChoreographyHandler = choreographyHandler;
 
+            _gameData.currentChoreographyHandler = choreographyHandler;
+            _gameData.test = "hi";
             Save();
         }
 

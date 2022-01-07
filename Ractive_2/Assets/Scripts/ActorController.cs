@@ -34,9 +34,6 @@ public class ActorController : MonoBehaviour
         phraseRecognizer.OnPhraseRecognized += PhraseRecognizer_OnPhraseRecognized;
         phraseRecognizer.Start();
 
-        // TODO: Has to load GameData and get Choreography Handler from there.
-        //       If no Game Data file is present a new must be created, as well as a new Choreography Handler.
-
         gameDataManger.Load();
         SetChoreography("Default");
         gameDataManger.Display("Start");
@@ -123,6 +120,7 @@ public class ActorController : MonoBehaviour
         gameDataManger.Save();*/
 
         gameDataManger.SetChoreography(choreographyName);
+        //gameDataManger.choreographyHandler.AddStoryBeat("SB_stCrispinsDay_2");
         gameDataManger.Display("SetChoreography");  
     }
 }

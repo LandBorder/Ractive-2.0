@@ -606,7 +606,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38a771ce057c53c42a84f345312f56c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  navMeshAgent: {fileID: 519896417}
+  actor: {fileID: 519896415}
   audioSource: {fileID: 1360456140}
 --- !u!4 &783955202
 Transform:

@@ -7,20 +7,17 @@ public class Directions : MonoBehaviour, InstructionSet
 {
     private GameDataManger _gameDataManger;
     private ChoreographyHandler _choreographyHandler;
+    private NavMeshAgent _navMeshAgent;
 
-    public NavMeshAgent navMeshAgent;
+    public GameObject actor;
     public AudioSource audioSource;
 
     void Start()
     {
         _gameDataManger = new GameDataManger();
         UpdateGameData();
-    }
 
-    public void UpdateGameData()
-    {
-        _gameDataManger.Load();
-        _choreographyHandler = _gameDataManger.choreographyHandler;
+        _navMeshAgent = actor.GetComponent(typeof(NavMeshAgent)) as NavMeshAgent;
     }
 
     public void AddSpeechToChoreography()
@@ -33,7 +30,8 @@ public class Directions : MonoBehaviour, InstructionSet
         Debug.Log("Moving to position.");
         //_choreographyHandler.Load("tears_in_rain");
         UpdateGameData();
-        navMeshAgent.SetDestination(_choreographyHandler.currentStoryBeat.targetPosition);
+        _navMeshAgent.SetDestination(_choreographyHandler.currentStoryBeat.targetPosition);
+        //_choreographyHandler.Execute(actor);
   
     }
 
@@ -41,22 +39,23 @@ public class Directions : MonoBehaviour, InstructionSet
     {
         Debug.Log("Action!");
 
-        _choreographyHandler.Load("tears_in_rain");
+        UpdateGameData();
+        _choreographyHandler.AddStoryBeat("SB_stCrispinsDay_2");
 
-        audioSource.clip = _choreographyHandler.currentStoryBeat.speechAudioClip;
+        // TODO: Execute each StoryBeat of the current Choreography after one another.
+        // _choreographyHandler.ExecuteCurrentStoryBeat();
+        // _choreographyHandler.Execute(); <-- Executes the currentStoryBeat, sets the next, executes it,...
+
+        /*audioSource.clip = _choreographyHandler.currentStoryBeat.speechAudioClip;
 
         if (!audioSource.isPlaying)
         {
             audioSource.Play();
         }
 
-        navMeshAgent.SetDestination(_choreographyHandler.currentStoryBeat.targetPosition);
+        _navMeshAgent.SetDestination(_choreographyHandler.currentStoryBeat.targetPosition);//*/
 
-        /*while(navMeshAgent.transform.position != navMeshAgent.destination)
-        {
-            yield return new WaitForSecondsRealtime(0.5f);
-        }*/
-
+        _choreographyHandler.Execute(actor);
     }
 
     public void StopChoreography()
@@ -68,13 +67,19 @@ public class Directions : MonoBehaviour, InstructionSet
             audioSource.Stop();
         }
 
-        navMeshAgent.SetDestination(navMeshAgent.transform.position);
+        _navMeshAgent.SetDestination(_navMeshAgent.transform.position);
     }
 
     public void MoveToPreviousPosition()
     {
         //_choreographyHandler.Load("tears_in_rain");
         UpdateGameData();
-        navMeshAgent.SetDestination(_choreographyHandler.currentStoryBeat.previousPosition);
+        _navMeshAgent.SetDestination(_choreographyHandler.currentStoryBeat.previousPosition);
+    }
+
+    private void UpdateGameData()
+    {
+        _gameDataManger.Load();
+        _choreographyHandler = _gameDataManger.choreographyHandler;
     }
 }
