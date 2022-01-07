@@ -3,10 +3,12 @@ using UnityEngine.AI;
 using UnityStandardAssets.Characters.ThirdPerson;
 using UnityEngine.Windows.Speech;
 using System.IO;
+using System;
 
 public class ActorController : MonoBehaviour
 {
-    private StoryBeatHandler _storyBeatHandler = new StoryBeatHandler();
+    public ChoreographyHandler choreographyHandler;
+    public GameDataManger gameDataManger;
 
     public Directions directions;
     Invoker invoker;
@@ -31,6 +33,13 @@ public class ActorController : MonoBehaviour
         phraseRecognizer = new GrammarRecognizer(path + "/Assets/Scripts/Grammar/grammar.xml");
         phraseRecognizer.OnPhraseRecognized += PhraseRecognizer_OnPhraseRecognized;
         phraseRecognizer.Start();
+
+        // TODO: Has to load GameData and get Choreography Handler from there.
+        //       If no Game Data file is present a new must be created, as well as a new Choreography Handler.
+
+        gameDataManger.Load();
+        SetChoreography("Default");
+        gameDataManger.Display("Start");
 
         //ChoreographyHandler ch = new ChoreographyHandler();
         //ch.Load("tears_in_rain");
@@ -96,17 +105,24 @@ public class ActorController : MonoBehaviour
                     thirdPersonCharacter.m_onlyWalkingSpeed = false;
                     break;
                 case "tears_in_rain":
-                    // TODO: Load "tears_in_rain" choreography
-                    //       
-                    audioHandler.SetAudioClip(grammarTag);
+                    SetChoreography("tears_in_rain");
                     break;
                 case "stCrispinsDay":
-                    audioHandler.SetAudioClip(grammarTag);
+                    SetChoreography("stCrispinsDay");
                     break;
 
             }
 
-
         }
+    }
+
+    private void SetChoreography(string choreographyName)
+    {
+        /*choreographyHandler.Load(choreographyName);
+        gameDataManger.choreographyHandler = choreographyHandler;
+        gameDataManger.Save();*/
+
+        gameDataManger.SetChoreography(choreographyName);
+        gameDataManger.Display("SetChoreography");  
     }
 }

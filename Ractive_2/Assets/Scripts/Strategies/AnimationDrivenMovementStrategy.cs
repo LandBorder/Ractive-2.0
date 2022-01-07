@@ -10,7 +10,9 @@ using UnityEngine;
 
 public class AnimationDrivenMovementStrategy : MovementStrategy
 {
+    private GameDataManger _gameDataManger;
     private ChoreographyHandler _choreographyHandler = new ChoreographyHandler();
+
     public AnimationDrivenMovementStrategy(NavMeshAgent agent, Camera camera, ThirdPersonCharacter character)
     {
         parameters = new Parameter[3];
@@ -28,6 +30,10 @@ public class AnimationDrivenMovementStrategy : MovementStrategy
         navMeshAgent = ((NavMeshAgentParameter)parameters[0]).GetValue();
 
         navMeshAgent.updateRotation = false;
+
+        _gameDataManger = new GameDataManger();
+        _gameDataManger.Load();
+        _choreographyHandler = _gameDataManger.choreographyHandler;
     }
 
     public override void Execute()
@@ -43,10 +49,17 @@ public class AnimationDrivenMovementStrategy : MovementStrategy
 
             if (Physics.Raycast(ray, out hit))
             {
-                _choreographyHandler.Load("tears_in_rain");
+                //_choreographyHandler.Load("tears_in_rain");
+                _gameDataManger.Load();
+                _choreographyHandler = _gameDataManger.choreographyHandler;
+
                 _choreographyHandler.currentStoryBeat.previousPosition = navMeshAgent.transform.position;
                 _choreographyHandler.currentStoryBeat.targetPosition = hit.point;
-                _choreographyHandler.Save();
+
+                _gameDataManger.choreographyHandler = _choreographyHandler;
+                _gameDataManger.Save();
+                _gameDataManger.Display("Movement Strategy");
+                //_choreographyHandler.Save();
             }
         }
 

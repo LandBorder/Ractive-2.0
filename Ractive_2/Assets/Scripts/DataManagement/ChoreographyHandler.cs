@@ -5,6 +5,8 @@ using System.Linq;
 using System.Runtime.Serialization.Formatters.Binary;
 using UnityEngine;
 
+[System.Serializable]
+
 public class ChoreographyHandler : MonoBehaviour
 {
     private DirectoryInfo _directoryInfo;
@@ -44,10 +46,11 @@ public class ChoreographyHandler : MonoBehaviour
 
         if (!File.Exists(path))
         {
-            Debug.LogWarning("File not found!");
+            Debug.LogWarning("Choreography file not found!");
             Debug.LogWarning("Creating new choreography!");
 
             choreography.screenplay = _fileName.Replace(".json", "");
+            NewStoryBeat();
             Save();
              
         }
@@ -133,7 +136,9 @@ public class ChoreographyHandler : MonoBehaviour
 
     public void NextStoryBeat()
     {
-        if (currentStoryBeat == null)
+        // TODO: When list reaches end create new story beat
+
+        if (currentStoryBeat != null)
         {
             currentStoryBeat = storyBeatList.SkipWhile(i => i != currentStoryBeat).Skip(1).First();
         }
@@ -163,8 +168,9 @@ public class ChoreographyHandler : MonoBehaviour
 
     public void NewStoryBeat()
     {
+        string storyBeatName = "SB_" + choreography.screenplay; 
         storyBeatHandler = new StoryBeatHandler();
-        string newStoryBeat = storyBeatHandler.CreateNewStoryBeat();
+        string newStoryBeat = storyBeatHandler.CreateNewStoryBeat(storyBeatName);
         AddStoryBeat(newStoryBeat);
     }
 
