@@ -202,10 +202,10 @@ public class ChoreographyHandler : MonoBehaviour
         NavMeshAgent navMeshAgent = actor.GetComponent(typeof(NavMeshAgent)) as NavMeshAgent;
         navMeshAgent.SetDestination(storyBeat.targetPosition);
 
-        while (!navMeshAgent.pathPending && navMeshAgent.remainingDistance < 0.5f)
+        /*while (!navMeshAgent.pathPending && navMeshAgent.remainingDistance < 0.5f)
         {
 
-        }
+        }*/
     }
 
     private string GetFilePath()

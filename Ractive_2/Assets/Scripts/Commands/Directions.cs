@@ -20,9 +20,9 @@ public class Directions : MonoBehaviour, InstructionSet
         _navMeshAgent = actor.GetComponent(typeof(NavMeshAgent)) as NavMeshAgent;
     }
 
-    public void AddSpeechToChoreography()
+    public void MoveToNextStoryBeat()
     {
-        Debug.Log("Adding lines to choreography.");
+        Debug.Log("Moving to next Story Beat.");
     }
 
     public void MoveToPosition()
@@ -40,7 +40,7 @@ public class Directions : MonoBehaviour, InstructionSet
         Debug.Log("Action!");
 
         UpdateGameData();
-        _choreographyHandler.AddStoryBeat("SB_stCrispinsDay_2");
+        //_choreographyHandler.AddStoryBeat("SB_stCrispinsDay_2");
 
         // TODO: Execute each StoryBeat of the current Choreography after one another.
         // _choreographyHandler.ExecuteCurrentStoryBeat();

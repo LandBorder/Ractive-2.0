@@ -37,18 +37,6 @@ public class ActorController : MonoBehaviour
         gameDataManger.Load();
         SetChoreography("Default");
         gameDataManger.Display("Start");
-
-        //ChoreographyHandler ch = new ChoreographyHandler();
-        //ch.Load("tears_in_rain");
-        //ch.AddStoryBeat("storybeat_1");
-        //ch.AddStoryBeat(ch.currentStoryBeat);
-        /*ch.PrintStoryBeatList();
-        Debug.Log(ch.currentStoryBeat.name);
-        ch.NextStoryBeat();
-        Debug.Log(ch.currentStoryBeat.name);*/
-        //ch.NewStoryBeat();
-
-        //ch.Save();
     }
 
     void Update()
@@ -61,7 +49,7 @@ public class ActorController : MonoBehaviour
         ActionCommand actionCommand = new ActionCommand(directions);
         CutCommand cutCommand = new CutCommand(directions);
         MoveToPositionCommand moveToPositionCommand = new MoveToPositionCommand(directions);
-        AddSpeechToChoreographyCommand addSpeechToChoreographyCommand = new AddSpeechToChoreographyCommand(directions);
+        MoveToNextStoryBeatCommand moveToNextStoryBeatCommand = new MoveToNextStoryBeatCommand(directions);
 
         string grammarTag = null;
 
@@ -106,6 +94,10 @@ public class ActorController : MonoBehaviour
                     break;
                 case "stCrispinsDay":
                     SetChoreography("stCrispinsDay");
+                    break;
+                case "nextStoryBeat":
+                    invoker = new Invoker(moveToNextStoryBeatCommand);
+                    invoker.ExecuteCommand();
                     break;
 
             }

@@ -24,6 +24,9 @@
 			<item>
 				<ruleref uri="#SetLines" />
 			</item>
+			<item>
+				<ruleref uri="#SwitchToNextStoryBeat" />
+			</item>
 		</one-of>
 	</rule>
 
@@ -133,6 +136,26 @@
 		</item>
 		<item repeat="0-1"> please </item>
 	</rule>
+	
+	<rule id="SwitchToNextStoryBeat" scope="public">
+		<example> then </example>
+		<example> afterwards </example>
+		<example> after that </example>
+
+		<item repeat="0-1"> please </item>
+		<one-of>
+			<item> then </item>
+			<item> afterwards </item>
+			<item> after that </item>
+			<item> thereupon </item>
+		</one-of>
+		<item repeat="0-1"> please </item>
+		<item>
+			<tag> out.Action = "nextStoryBeat"; </tag>
+		</item>
+	</rule>
+		
+	
 
 	<rule id = "Monologues_Obj">
 		<one-of>
