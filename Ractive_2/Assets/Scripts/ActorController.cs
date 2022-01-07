@@ -4,11 +4,13 @@ using UnityStandardAssets.Characters.ThirdPerson;
 using UnityEngine.Windows.Speech;
 using System.IO;
 using System;
+using System.Collections;
 
 public class ActorController : MonoBehaviour
 {
     public ChoreographyHandler choreographyHandler;
     public GameDataManger gameDataManger;
+    public StagelightingController stagelightingController;
 
     public Directions directions;
     Invoker invoker;
@@ -68,10 +70,12 @@ public class ActorController : MonoBehaviour
             switch (grammarTag)
             {
                 case "startChoreography":
+                    stagelightingController.ActivateStageLighting();
                     invoker = new Invoker(actionCommand);
                     invoker.ExecuteCommand();
                     break;
                 case "stopChoreography":
+                    stagelightingController.DectivateStageLighting();
                     invoker = new Invoker(cutCommand);
                     invoker.ExecuteCommand();
                     break;
