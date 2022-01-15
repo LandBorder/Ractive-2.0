@@ -148,6 +148,7 @@
 			<item> afterwards </item>
 			<item> after that </item>
 			<item> thereupon </item>
+			<item> next </item>
 		</one-of>
 		<item repeat="0-1"> please </item>
 		<item>

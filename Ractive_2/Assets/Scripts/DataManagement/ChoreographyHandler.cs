@@ -40,7 +40,7 @@ public class ChoreographyHandler : MonoBehaviour
             currentStoryBeat = storyBeatList.First();
         }
 
-        //PrintStoryBeatList();
+        PrintStoryBeatList();
     }
 
     private string ReadFromFile(string fileName)
@@ -149,7 +149,15 @@ public class ChoreographyHandler : MonoBehaviour
 
         if (currentStoryBeat != null)
         {
-            currentStoryBeat = storyBeatList.SkipWhile(i => i != currentStoryBeat).Skip(1).First();
+            currentStoryBeat = storyBeatList.SkipWhile(i => i != currentStoryBeat).Skip(1).FirstOrDefault();
+
+            if (currentStoryBeat == null)
+            {
+                Debug.Log("Creating new storybeat.");
+                NewStoryBeat();
+                currentStoryBeat = storyBeatList.SkipWhile(i => i != currentStoryBeat).Skip(1).DefaultIfEmpty(storyBeatList[0]).FirstOrDefault();
+                Save();
+            }
         }
         else
         {
@@ -183,15 +191,23 @@ public class ChoreographyHandler : MonoBehaviour
         AddStoryBeat(newStoryBeat);
     }
 
-    public void Execute(GameObject actor)
+    public IEnumerator Execute(GameObject actor)
     {
         // TODO: ExecuteCurrentStoryBeat and set next one until all have been executed.
+        NavMeshAgent navMeshAgent = actor.GetComponent(typeof(NavMeshAgent)) as NavMeshAgent;
 
         PrintStoryBeatList();
         foreach (StoryBeat storyBeat in storyBeatList)
         {
             Debug.Log("Executing StoryBeat: " + storyBeat.name);
-            ExecuteStoryBeat(actor, storyBeat);
+            Debug.Log("Target position: " + storyBeat.targetPosition);
+            navMeshAgent.SetDestination(storyBeat.targetPosition);
+
+            while (navMeshAgent.pathPending || navMeshAgent.remainingDistance > 0.5f)
+            {
+                //ExecuteStoryBeat(actor, storyBeat);
+                yield return null;
+            } 
         }
 
         Debug.Log("Finished executing StoryBeats");
@@ -201,11 +217,13 @@ public class ChoreographyHandler : MonoBehaviour
     {
         NavMeshAgent navMeshAgent = actor.GetComponent(typeof(NavMeshAgent)) as NavMeshAgent;
         navMeshAgent.SetDestination(storyBeat.targetPosition);
+        Debug.Log("Target position: " + storyBeat.targetPosition);
 
-        /*while (!navMeshAgent.pathPending && navMeshAgent.remainingDistance < 0.5f)
-        {
+    }
 
-        }*/
+    public void SetCurrentStoryBeatToStartOfChoreography()
+    {
+        currentStoryBeat = storyBeatList.First();
     }
 
     private string GetFilePath()

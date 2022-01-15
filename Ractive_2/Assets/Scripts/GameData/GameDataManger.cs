@@ -10,7 +10,10 @@ public class GameDataManger : MonoBehaviour
 
     public void Save()
     {
-        if(_choreographyHandlerIsSet)
+        //TODO: Saving the choreography is broken again
+
+        //if(_choreographyHandlerIsSet) // <--- Error line
+        if(choreographyHandler != null) 
         {
             choreographyHandler.Save();
         }
@@ -21,15 +24,22 @@ public class GameDataManger : MonoBehaviour
 
     public void Load()
     {
-        _gameData = new GameData();
+       /* _gameData = new GameData();
         string json = ReadFromFile();
-        JsonUtility.FromJsonOverwrite(json, _gameData);
+        JsonUtility.FromJsonOverwrite(json, _gameData);*/
 
-        choreographyHandler = _gameData.currentChoreographyHandler;
+        //choreographyHandler = _gameData.currentChoreographyHandler;
+        choreographyHandler = GameObject.FindObjectOfType<ChoreographyHandler>();
+
+        if (choreographyHandler == null)
+        {
+            Debug.LogError("No Choreography Handler found.");
+        }
     }
 
     public void SetChoreography(string choreographyName)
     {
+        choreographyHandler.storyBeatList.Clear();
         choreographyHandler.Load(choreographyName);
         _choreographyHandlerIsSet = true;
         Save();
@@ -60,8 +70,8 @@ public class GameDataManger : MonoBehaviour
             Debug.LogWarning("GameData file not found!");
             Debug.LogWarning("Creating new Game Data!");
 
-            _gameData.currentChoreographyHandler = choreographyHandler;
-            _gameData.test = "hi";
+            _gameData.currentChoreographyHandler = choreographyHandler; // <- save guid (id changes at restart)
+            _gameData.choreographyHandlerName = choreographyHandler.name;
             Save();
         }
 

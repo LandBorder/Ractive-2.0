@@ -71,8 +71,7 @@ public class ActorController : MonoBehaviour
             {
                 case "startChoreography":
                     stagelightingController.ActivateStageLighting();
-                    invoker = new Invoker(actionCommand);
-                    invoker.ExecuteCommand();
+                    StartCoroutine(ExecuteCommandAfterSeconds(actionCommand, 1.5f));
                     break;
                 case "stopChoreography":
                     stagelightingController.DectivateStageLighting();
@@ -111,12 +110,14 @@ public class ActorController : MonoBehaviour
 
     private void SetChoreography(string choreographyName)
     {
-        /*choreographyHandler.Load(choreographyName);
-        gameDataManger.choreographyHandler = choreographyHandler;
-        gameDataManger.Save();*/
-
         gameDataManger.SetChoreography(choreographyName);
-        //gameDataManger.choreographyHandler.AddStoryBeat("SB_stCrispinsDay_2");
         gameDataManger.Display("SetChoreography");  
+    }
+
+    private IEnumerator ExecuteCommandAfterSeconds(Command command, float waitTime)
+    {
+        yield return new WaitForSeconds(waitTime);
+        invoker = new Invoker(command);
+        invoker.ExecuteCommand();
     }
 }

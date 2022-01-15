@@ -5,5 +5,5 @@ using UnityEngine;
 public class GameData
 {
     public ChoreographyHandler currentChoreographyHandler;
-    public string test;
+    public string choreographyHandlerName;
 }

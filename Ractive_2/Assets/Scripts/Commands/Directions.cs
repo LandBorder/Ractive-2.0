@@ -23,12 +23,14 @@ public class Directions : MonoBehaviour, InstructionSet
     public void MoveToNextStoryBeat()
     {
         Debug.Log("Moving to next Story Beat.");
+        _choreographyHandler.NextStoryBeat();
+        _choreographyHandler.PrintStoryBeatList();
+
     }
 
     public void MoveToPosition()
     {
         Debug.Log("Moving to position.");
-        //_choreographyHandler.Load("tears_in_rain");
         UpdateGameData();
         _navMeshAgent.SetDestination(_choreographyHandler.currentStoryBeat.targetPosition);
         //_choreographyHandler.Execute(actor);
@@ -55,7 +57,8 @@ public class Directions : MonoBehaviour, InstructionSet
 
         _navMeshAgent.SetDestination(_choreographyHandler.currentStoryBeat.targetPosition);//*/
 
-        _choreographyHandler.Execute(actor);
+        StartCoroutine(_choreographyHandler.Execute(actor));
+        _choreographyHandler.SetCurrentStoryBeatToStartOfChoreography();
     }
 
     public void StopChoreography()
@@ -72,7 +75,6 @@ public class Directions : MonoBehaviour, InstructionSet
 
     public void MoveToPreviousPosition()
     {
-        //_choreographyHandler.Load("tears_in_rain");
         UpdateGameData();
         _navMeshAgent.SetDestination(_choreographyHandler.currentStoryBeat.previousPosition);
     }
