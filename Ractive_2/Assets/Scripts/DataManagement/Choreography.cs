@@ -10,5 +10,4 @@ public class Choreography
     public AudioClip speechAudioClip;
    
     public List<StoryBeat> storyBeatList;
-    public string hi;
 }

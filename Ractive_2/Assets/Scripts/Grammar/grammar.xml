@@ -27,6 +27,12 @@
 			<item>
 				<ruleref uri="#SwitchToNextStoryBeat" />
 			</item>
+			<item>
+				<ruleref uri="#PlayAudio" />
+			</item>
+			<item>
+				<ruleref uri="#PauseAudio" />
+			</item>
 		</one-of>
 	</rule>
 
@@ -155,8 +161,62 @@
 			<tag> out.Action = "nextStoryBeat"; </tag>
 		</item>
 	</rule>
-		
+
+	<rule id="PlayAudio" scope="public">
+		<example> please begin reciting </example>
+		<example> start speaking </example>
+		<example> commence the speech please </example>
+
+		<item repeat="0-1"> please </item>
+		<ruleref uri="#Begin_Vb"/>
+		<ruleref uri="#Speaking_Vb"/>
+		<item repeat="0-1"> please </item>
+		<item>
+			<tag> out.Action = "playAudio"; </tag>
+		</item>
+	</rule>
+
+	<rule id="PauseAudio" scope="public">
+		<example> please pause reciting </example>
+		<example> stop speaking </example>
+		<example> end the speech please </example>
+
+		<item repeat="0-1"> please </item>
+		<ruleref uri="#End_Vb"/>
+		<ruleref uri="#Speaking_Vb"/>
+		<item repeat="0-1"> please </item>
+		<item>
+			<tag> out.Action = "pauseAudio"; </tag>
+		</item>
+	</rule>
+
 	
+
+	<rule id = "End_Vb">
+		<one-of>
+			<item> end </item>
+			<item> stop </item>
+			<item> pause </item>
+			<item> halt </item>
+		</one-of>
+	</rule>
+	
+	<rule id = "Speaking_Vb">
+		<one-of>
+			<item> reciting </item>
+			<item> speaking </item>
+			<item> the speech </item>
+		</one-of>
+	</rule>
+	
+	<rule id = "Begin_Vb">
+		<one-of>
+			<item> begin </item>
+			<item> start </item>
+			<item> commence </item>
+			<item> continue </item>
+		</one-of>
+	</rule>
 
 	<rule id = "Monologues_Obj">
 		<one-of>

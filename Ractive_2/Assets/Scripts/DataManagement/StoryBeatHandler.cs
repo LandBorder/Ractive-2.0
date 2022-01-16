@@ -70,6 +70,7 @@ public class StoryBeatHandler : MonoBehaviour
             {
                 storyBeat = new StoryBeat();
                 storyBeat.name = storyBeatName;
+                storyBeat.audioControlCommand = ChoreographyHandler.AudioControlCommand.None;
 
                 string json = JsonUtility.ToJson(storyBeat);
                 WriteToFile(storyBeatName + ".json", json);

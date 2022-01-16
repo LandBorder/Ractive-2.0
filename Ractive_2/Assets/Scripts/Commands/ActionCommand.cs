@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class ActionCommand : Command
 {
-    InstructionSet instructionSet;
+    I_InstructionSet instructionSet;
 
-    public ActionCommand(InstructionSet newInstructionSet)
+    public ActionCommand(I_InstructionSet newInstructionSet)
     {
         this.instructionSet = newInstructionSet;
     }

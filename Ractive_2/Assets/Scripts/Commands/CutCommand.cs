@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class CutCommand : Command
 {
-    InstructionSet instructionSet;
+    I_InstructionSet instructionSet;
 
-    public CutCommand(InstructionSet newInstructionSet)
+    public CutCommand(I_InstructionSet newInstructionSet)
     {
         this.instructionSet = newInstructionSet;
     }

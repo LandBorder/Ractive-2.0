@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class MoveToPositionCommand : Command
 {
-    InstructionSet instructionSet;
+    I_InstructionSet instructionSet;
 
-    public MoveToPositionCommand(InstructionSet newInstructionSet)
+    public MoveToPositionCommand(I_InstructionSet newInstructionSet)
     {
         this.instructionSet = newInstructionSet;
     }

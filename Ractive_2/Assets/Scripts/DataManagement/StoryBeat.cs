@@ -12,7 +12,8 @@ public class StoryBeat
 
     public Vector3 targetPosition = Vector3.zero;
     public Vector3 previousPosition = Vector3.zero;
-    public AudioClip speechAudioClip;
+
+    public ChoreographyHandler.AudioControlCommand audioControlCommand;
 
     // TODO: add
 

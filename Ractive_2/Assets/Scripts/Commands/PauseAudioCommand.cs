@@ -2,18 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MoveToNextStoryBeatCommand : Command
+public class PauseAudioCommand : Command
 {
     I_InstructionSet instructionSet;
 
-    public MoveToNextStoryBeatCommand(I_InstructionSet newInstructionSet)
+    public PauseAudioCommand(I_InstructionSet newInstructionSet)
     {
         this.instructionSet = newInstructionSet;
     }
 
     public void Execute()
     {
-        instructionSet.MoveToNextStoryBeat();
+        instructionSet.PauseAudio();
     }
 
     public void Undo()

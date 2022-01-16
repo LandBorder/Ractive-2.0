@@ -24,7 +24,6 @@ public class ActorController : MonoBehaviour
 
     MovementStrategy movementStrategy;
 
-    public AudioHandler audioHandler;
 
     void Start()
     {
@@ -52,6 +51,8 @@ public class ActorController : MonoBehaviour
         CutCommand cutCommand = new CutCommand(directions);
         MoveToPositionCommand moveToPositionCommand = new MoveToPositionCommand(directions);
         MoveToNextStoryBeatCommand moveToNextStoryBeatCommand = new MoveToNextStoryBeatCommand(directions);
+        StartAudioCommand startAudioCommand = new StartAudioCommand(directions);
+        PauseAudioCommand pauseAudioCommand = new PauseAudioCommand(directions);
 
         string grammarTag = null;
 
@@ -100,6 +101,14 @@ public class ActorController : MonoBehaviour
                     break;
                 case "nextStoryBeat":
                     invoker = new Invoker(moveToNextStoryBeatCommand);
+                    invoker.ExecuteCommand();
+                    break;
+                case "playAudio":
+                    invoker = new Invoker(startAudioCommand);
+                    invoker.ExecuteCommand();
+                    break;
+                case "pauseAudio":
+                    invoker = new Invoker(pauseAudioCommand);
                     invoker.ExecuteCommand();
                     break;
 

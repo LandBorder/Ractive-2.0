@@ -17,6 +17,9 @@ public class ChoreographyHandler : MonoBehaviour
     public Choreography choreography;
     public List<StoryBeat> storyBeatList = new List<StoryBeat>();
     public StoryBeat currentStoryBeat;
+    public AudioHandler audioHandler;
+
+    public enum AudioControlCommand { None, Start, Pause, Stop }
 
     public void Save()
     {
@@ -53,9 +56,6 @@ public class ChoreographyHandler : MonoBehaviour
             Debug.LogWarning("Creating new choreography!");
 
             choreography.screenplay = _fileName.Replace(".json", "");
-
-            // TODO: Add Audio Clip to choreography 
-            //string audioPath = Directory.GetCurrentDirectory() + "/Assets/Audio/" + choreography.screenplay + ".wav";
 
             NewStoryBeat();
             Save();
@@ -193,16 +193,28 @@ public class ChoreographyHandler : MonoBehaviour
 
     public IEnumerator Execute(GameObject actor)
     {
-        // TODO: ExecuteCurrentStoryBeat and set next one until all have been executed.
+        // TODO: Possibly one seperate Execute for each component of the storybeat (movement, speech etc.)
+        //       Because movement and speech might need to be executed concurently, but in this set up one 
+        //       yield would stall the execution of the next component.
+
+
+        // TODO: If one storybeat has no target position this component has to be set to the agents current position instead of 0,0,0
         NavMeshAgent navMeshAgent = actor.GetComponent(typeof(NavMeshAgent)) as NavMeshAgent;
 
         PrintStoryBeatList();
         foreach (StoryBeat storyBeat in storyBeatList)
         {
             Debug.Log("Executing StoryBeat: " + storyBeat.name);
-            Debug.Log("Target position: " + storyBeat.targetPosition);
+
+            // Audio
+            Debug.Log("Audio Control Command: " + storyBeat.audioControlCommand);
+            ControlAudio(storyBeat.audioControlCommand);
+
+            // Movement
+            //Debug.Log("Target position: " + storyBeat.targetPosition);
             navMeshAgent.SetDestination(storyBeat.targetPosition);
 
+            // Wait until the target position of the storybeat is reached
             while (navMeshAgent.pathPending || navMeshAgent.remainingDistance > 0.5f)
             {
                 //ExecuteStoryBeat(actor, storyBeat);
@@ -224,6 +236,39 @@ public class ChoreographyHandler : MonoBehaviour
     public void SetCurrentStoryBeatToStartOfChoreography()
     {
         currentStoryBeat = storyBeatList.First();
+    }
+
+    public void ControlAudio(ChoreographyHandler.AudioControlCommand enumMember)
+    {
+        switch (enumMember)
+        {
+            case ChoreographyHandler.AudioControlCommand.Start:
+                StartAudio();
+                break;
+            case ChoreographyHandler.AudioControlCommand.Pause:
+                PauseAudio();
+                break;
+            case ChoreographyHandler.AudioControlCommand.Stop:
+                StopAudio();
+                break;
+            case ChoreographyHandler.AudioControlCommand.None:
+                break;
+        }
+    }
+
+    public void StartAudio()
+    {
+        audioHandler.StartAudioFile();
+    }
+
+    public void PauseAudio()
+    {
+        audioHandler.PauseAudioFile();
+    }
+
+    public void StopAudio()
+    {
+        audioHandler.StopAudioFile();
     }
 
     private string GetFilePath()

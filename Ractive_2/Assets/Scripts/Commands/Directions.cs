@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class Directions : MonoBehaviour, InstructionSet
+public class Directions : MonoBehaviour, I_InstructionSet
 {
     private GameDataManger _gameDataManger;
     private ChoreographyHandler _choreographyHandler;
@@ -22,10 +22,10 @@ public class Directions : MonoBehaviour, InstructionSet
 
     public void MoveToNextStoryBeat()
     {
-        Debug.Log("Moving to next Story Beat.");
+        Debug.Log("Moving to next storybeat.");
         _choreographyHandler.NextStoryBeat();
+        Debug.Log("Current storybeat: " + _choreographyHandler.currentStoryBeat.name);
         _choreographyHandler.PrintStoryBeatList();
-
     }
 
     public void MoveToPosition()
@@ -42,20 +42,6 @@ public class Directions : MonoBehaviour, InstructionSet
         Debug.Log("Action!");
 
         UpdateGameData();
-        //_choreographyHandler.AddStoryBeat("SB_stCrispinsDay_2");
-
-        // TODO: Execute each StoryBeat of the current Choreography after one another.
-        // _choreographyHandler.ExecuteCurrentStoryBeat();
-        // _choreographyHandler.Execute(); <-- Executes the currentStoryBeat, sets the next, executes it,...
-
-        /*audioSource.clip = _choreographyHandler.currentStoryBeat.speechAudioClip;
-
-        if (!audioSource.isPlaying)
-        {
-            audioSource.Play();
-        }
-
-        _navMeshAgent.SetDestination(_choreographyHandler.currentStoryBeat.targetPosition);//*/
 
         StartCoroutine(_choreographyHandler.Execute(actor));
         _choreographyHandler.SetCurrentStoryBeatToStartOfChoreography();
@@ -65,12 +51,10 @@ public class Directions : MonoBehaviour, InstructionSet
     {
         Debug.Log("Cut!");
 
-        if (audioSource.isPlaying)
-        {
-            audioSource.Stop();
-        }
+        _choreographyHandler.StopAudio();
 
         _navMeshAgent.SetDestination(_navMeshAgent.transform.position);
+        _choreographyHandler.SetCurrentStoryBeatToStartOfChoreography();
     }
 
     public void MoveToPreviousPosition()
@@ -83,5 +67,21 @@ public class Directions : MonoBehaviour, InstructionSet
     {
         _gameDataManger.Load();
         _choreographyHandler = _gameDataManger.choreographyHandler;
+    }
+
+    public void StartAudio()
+    {
+        Debug.Log("Play Audio");
+        //_choreographyHandler.StartAudio();
+        _choreographyHandler.currentStoryBeat.audioControlCommand = ChoreographyHandler.AudioControlCommand.Start;
+        _gameDataManger.Save();
+    }
+
+    public void PauseAudio()
+    {
+        Debug.Log("Pause Audio");
+        //_choreographyHandler.PauseAudio();
+        _choreographyHandler.currentStoryBeat.audioControlCommand = ChoreographyHandler.AudioControlCommand.Pause;
+        _gameDataManger.Save();
     }
 }

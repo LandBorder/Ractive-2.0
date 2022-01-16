@@ -4,7 +4,6 @@ using UnityEngine;
 public class GameDataManger : MonoBehaviour
 {
     private GameData _gameData;
-    private bool _choreographyHandlerIsSet = false;
 
     public ChoreographyHandler choreographyHandler;
 
@@ -41,7 +40,7 @@ public class GameDataManger : MonoBehaviour
     {
         choreographyHandler.storyBeatList.Clear();
         choreographyHandler.Load(choreographyName);
-        _choreographyHandlerIsSet = true;
+        choreographyHandler.audioHandler.SetAudioClip(choreographyName + ".wav");
         Save();
     }
 

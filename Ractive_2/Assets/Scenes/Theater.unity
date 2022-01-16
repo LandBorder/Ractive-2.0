@@ -230,7 +230,6 @@ MonoBehaviour:
   xrCamera: {fileID: 963194227}
   thirdPersonCharacter: {fileID: 519896419}
   speechConfidenceLevel: 2
-  audioHandler: {fileID: 1360456141}
 --- !u!195 &519896417
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -657,13 +656,13 @@ MonoBehaviour:
     screenplay: 
     speechAudioClip: {fileID: 0}
     storyBeatList: []
-    hi: 
   storyBeatList: []
   currentStoryBeat:
     name: 
     targetPosition: {x: 0, y: 0, z: 0}
     previousPosition: {x: 0, y: 0, z: 0}
-    speechAudioClip: {fileID: 0}
+    audioControlCommand: 0
+  audioHandler: {fileID: 1360456141}
 --- !u!4 &932980251
 Transform:
   m_ObjectHideFlags: 0
@@ -1232,8 +1231,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d7547f2dbccbcd4ba40b471fbc5b3dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stCrispinsDaySpeech: {fileID: 8300000, guid: 732c73c1c4db76148be5df86a2848a39, type: 3}
-  tearsInRain: {fileID: 8300000, guid: 80b42e9b3dd2398478adf23347b8da32, type: 3}
+  audioSource: {fileID: 1360456140}
 --- !u!1 &1633336214
 GameObject:
   m_ObjectHideFlags: 0
