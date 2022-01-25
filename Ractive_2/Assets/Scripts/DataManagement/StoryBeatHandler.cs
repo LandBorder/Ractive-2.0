@@ -56,7 +56,7 @@ public class StoryBeatHandler : MonoBehaviour
     }
 
     // Returns name of newly created story beat.
-    public string CreateNewStoryBeat(string storyBeatName = "storybeat")
+    public string CreateNewStoryBeat(string storyBeatName = "storybeat", StoryBeat previousStoryBeat = null)
     {
         storyBeatName += "_";
 
@@ -71,6 +71,13 @@ public class StoryBeatHandler : MonoBehaviour
                 storyBeat = new StoryBeat();
                 storyBeat.name = storyBeatName;
                 storyBeat.audioControlCommand = ChoreographyHandler.AudioControlCommand.None;
+
+                // Copy values from the previous storybeat to the new one
+                if (previousStoryBeat != null)
+                {
+                    storyBeat.targetPosition = previousStoryBeat.targetPosition;
+                    storyBeat.previousPosition = previousStoryBeat.previousPosition;
+                }
 
                 string json = JsonUtility.ToJson(storyBeat);
                 WriteToFile(storyBeatName + ".json", json);

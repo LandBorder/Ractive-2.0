@@ -12,7 +12,7 @@ public class ChoreographyHandler : MonoBehaviour
 {
     private DirectoryInfo _directoryInfo;
     private string _fileName;
-    private StoryBeatHandler storyBeatHandler; 
+    private StoryBeatHandler _storyBeatHandler; 
 
     public Choreography choreography;
     public List<StoryBeat> storyBeatList = new List<StoryBeat>();
@@ -80,25 +80,6 @@ public class ChoreographyHandler : MonoBehaviour
         }
     }
 
-    public void AddAllStoryBeats()
-    {
-        _directoryInfo = new DirectoryInfo(GetFilePath());
-
-        var files = _directoryInfo.GetFiles().Where(o => o.Name.EndsWith(".json")).ToArray();
-
-        for (int i = 0; i < files.Length; i++)
-        {
-            using (StreamReader reader = new StreamReader(files[i].FullName))
-            {
-                string json = File.ReadAllText(files[i].FullName);
-                storyBeatList.Add((StoryBeat)JsonUtility.FromJson(json, typeof(StoryBeat)));
-            }
-        }
-
-        //Debug.Log(choreography[0].speechAudioClip);
-        //Debug.Log(choreography[1].speechAudioClip);
-    }
-
     public void AddStoryBeat(string storyBeatName)
     {
         storyBeatName += ".json";
@@ -145,7 +126,7 @@ public class ChoreographyHandler : MonoBehaviour
 
     public void NextStoryBeat()
     {
-        // TODO: When list reaches end create new story beat
+        // Creates new storybeat when list reaches end
 
         if (currentStoryBeat != null)
         {
@@ -165,29 +146,23 @@ public class ChoreographyHandler : MonoBehaviour
         }
     }
 
-    public void PrintStoryBeatList()
-    {
-        if (!IsEmpty(storyBeatList))
-        {
-            string allStoryBeats = "";
-            foreach (var item in storyBeatList)
-            {
-                allStoryBeats = allStoryBeats + item.name + ", ";
-            }
-
-            Debug.Log("\"" + choreography.screenplay + "\"" + " contains: " + allStoryBeats);
-        }
-        else
-        {
-            Debug.LogWarning("Story Beat List is empty!");
-        }
-    }
-
     public void NewStoryBeat()
     {
         string storyBeatName = "SB_" + choreography.screenplay; 
-        storyBeatHandler = new StoryBeatHandler();
-        string newStoryBeat = storyBeatHandler.CreateNewStoryBeat(storyBeatName);
+        _storyBeatHandler = new StoryBeatHandler();
+        string newStoryBeat;
+
+        // Checks if it is the first storybeat to be added. If not, some previous 
+        // values will need to be passed to the new storybeat.
+        if (storyBeatList.Count == 0)
+        {
+            newStoryBeat = _storyBeatHandler.CreateNewStoryBeat(storyBeatName);
+        }
+        else
+        {
+            newStoryBeat = _storyBeatHandler.CreateNewStoryBeat(storyBeatName, storyBeatList.Last());
+        }
+
         AddStoryBeat(newStoryBeat);
     }
 
@@ -271,26 +246,71 @@ public class ChoreographyHandler : MonoBehaviour
         audioHandler.StopAudioFile();
     }
 
-    private string GetFilePath()
-    {
-        string path = Directory.GetCurrentDirectory();
-        return (path + "/Assets/Scripts/StoryBeats");
-    }
+    /*
+     * ------------------------------------------------------------------------
+     * Debug Functions
+     * 
+     */
 
-    private string GetFilePath(string fileName)
+    public void PrintStoryBeatList()
     {
-        string path = Directory.GetCurrentDirectory();
-        return (path + "/Assets/Scripts/StoryBeats/" + fileName);
-    }
-
-    private static bool IsEmpty<StoryBeat>(List<StoryBeat> list)
-    {
-        if (list == null)
+        if (!IsEmpty(storyBeatList))
         {
-            return true;
-        }
+            string allStoryBeats = "";
+            foreach (var item in storyBeatList)
+            {
+                allStoryBeats = allStoryBeats + item.name + ", ";
+            }
 
-        return !list.Any();
+            Debug.Log("\"" + choreography.screenplay + "\"" + " contains: " + allStoryBeats);
+        }
+        else
+        {
+            Debug.LogWarning("Story Beat List is empty!");
+        }
     }
+
+
+    public void AddAllStoryBeats()
+    {
+        _directoryInfo = new DirectoryInfo(GetFilePath());
+
+        var files = _directoryInfo.GetFiles().Where(o => o.Name.EndsWith(".json")).ToArray();
+
+        for (int i = 0; i < files.Length; i++)
+        {
+            using (StreamReader reader = new StreamReader(files[i].FullName))
+            {
+                string json = File.ReadAllText(files[i].FullName);
+                storyBeatList.Add((StoryBeat)JsonUtility.FromJson(json, typeof(StoryBeat)));
+            }
+        }
+    }
+
+    /*
+     * ------------------------------------------------------------------------
+     */
+
+    private string GetFilePath()
+{
+    string path = Directory.GetCurrentDirectory();
+    return (path + "/Assets/Scripts/StoryBeats");
+}
+
+private string GetFilePath(string fileName)
+{
+    string path = Directory.GetCurrentDirectory();
+    return (path + "/Assets/Scripts/StoryBeats/" + fileName);
+}
+
+private static bool IsEmpty<StoryBeat>(List<StoryBeat> list)
+{
+    if (list == null)
+    {
+        return true;
+    }
+
+    return !list.Any();
+}
 
 }

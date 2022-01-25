@@ -31,7 +31,7 @@ public class ActorController : MonoBehaviour
         movementStrategy.Initialize();
 
         string path = Directory.GetCurrentDirectory();
-        phraseRecognizer = new GrammarRecognizer(path + "/Assets/Scripts/Grammar/grammar.xml");
+        phraseRecognizer = new GrammarRecognizer(path + "/Assets/Scripts/Grammar/grammar_commands.xml");
         phraseRecognizer.OnPhraseRecognized += PhraseRecognizer_OnPhraseRecognized;
         phraseRecognizer.Start();
 

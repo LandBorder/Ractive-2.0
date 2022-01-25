@@ -1,0 +1,179 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<grammar version="1.0" xml:lang="en-US" mode="voice" tag-format="semantics/1.0" root="topLevel"
+ xmlns="http://www.w3.org/2001/06/grammar">
+
+
+	<rule id="topLevel">
+		<one-of>
+			<item>
+				<ruleref uri="#MoveTo_Cmd" />
+			</item>
+			<item>
+				<ruleref uri="#MoveBack_Cmd" />
+			</item>
+			<item>
+				<ruleref uri="#Start_Cmd" />
+			</item>
+			<item>
+				<ruleref uri="#Stop_Cmd" />
+			</item>
+			<item>
+				<ruleref uri="#DecreaseWalkingSpeed_Cmd" />
+			</item>
+			<item>
+				<ruleref uri="#IncreaseWalkingSpeed_Cmd" />
+			</item>
+			<item>
+				<ruleref uri="#SetLines_Cmd" />
+			</item>
+			<item>
+				<ruleref uri="#SwitchToNextStoryBeat_Cmd" />
+			</item>
+			<item>
+				<ruleref uri="#PlayAudio_Cmd" />
+			</item>
+			<item>
+				<ruleref uri="#PauseAudio_Cmd" />
+			</item>
+		</one-of>
+	</rule>
+	
+	<rule id="Start_Cmd" scope="public">
+		<example> action </example>
+		<example> start </example>
+		<example> go ahead </example>
+
+		<item repeat="0-1"> please </item>
+		<ruleref uri="C:\Users\User 1\Documents\Bachelorarbeit\Git\Ractive-2.0\Ractive_2\Assets\Scripts\Grammar\verbs.xml#Start_Vb"/>
+		<item repeat="0-1"> please </item>
+		<item>
+			<tag> out.Action = "startChoreography"; </tag>
+		</item>
+	</rule>
+
+	<rule id="Stop_Cmd" scope="public">
+		<example> cut </example>
+		<example> stop </example>
+		<example> halt </example>
+
+		<item repeat="0-1"> please </item>
+		<ruleref uri="C:\Users\User 1\Documents\Bachelorarbeit\Git\Ractive-2.0\Ractive_2\Assets\Scripts\Grammar\verbs.xml#Stop_Vb"/>
+		<item repeat="0-1"> please </item>
+		<item>
+			<tag> out.Action = "stopChoreography"; </tag>
+		</item>
+	</rule>
+
+	<rule id="MoveTo_Cmd" scope="public">
+		<example> please move to this position </example>
+		<example> go there </example>
+		<example> go over there please </example>
+
+		<item repeat="0-1"> please </item>
+		<ruleref uri="C:\Users\User 1\Documents\Bachelorarbeit\Git\Ractive-2.0\Ractive_2\Assets\Scripts\Grammar\verbs.xml#Movement_Vb"/>
+		<item repeat="0-1"> to this </item>
+		<ruleref uri="C:\Users\User 1\Documents\Bachelorarbeit\Git\Ractive-2.0\Ractive_2\Assets\Scripts\Grammar\nouns.xml#Location_Noun"/>
+		<item repeat="0-1"> please </item>
+		<item>
+			<tag> out.Action = "moveToPosition"; </tag>
+		</item>
+	</rule>
+
+	<rule id="MoveBack_Cmd" scope="public">
+		<example> please go back </example>
+		<example> walk back please </example>
+
+		<item repeat="0-1"> please </item>
+		<ruleref uri="C:\Users\User 1\Documents\Bachelorarbeit\Git\Ractive-2.0\Ractive_2\Assets\Scripts\Grammar\verbs.xml#Movement_Vb"/>
+		<item repeat="0-1"> back </item>
+		<item repeat="0-1"> please </item>
+		<item>
+			<tag> out.Action = "moveToPreviousPosition"; </tag>
+		</item>
+	</rule>
+
+	<rule id="DecreaseWalkingSpeed_Cmd" scope="public">
+		<example> please move slower </example>
+		<example> walk not so fast </example>
+		<example> go slowly please </example>
+
+		<item repeat="0-1"> please </item>
+		<ruleref uri="C:\Users\User 1\Documents\Bachelorarbeit\Git\Ractive-2.0\Ractive_2\Assets\Scripts\Grammar\verbs.xml#Movement_Vb"/>
+		<ruleref uri="C:\Users\User 1\Documents\Bachelorarbeit\Git\Ractive-2.0\Ractive_2\Assets\Scripts\Grammar\adjectives.xml#DecreaseVelocity_Adj"/>
+		<item repeat="0-1"> please </item>
+		<item>
+			<tag> out.Action = "changeWalkingSpeedToSlow"; </tag>
+		</item>
+	</rule>
+
+	<rule id="IncreaseWalkingSpeed_Cmd" scope="public">
+		<example> please move faster </example>
+		<example> walk not so slow </example>
+		<example> go quickly please </example>
+
+		<item repeat="0-1"> please </item>
+		<ruleref uri="C:\Users\User 1\Documents\Bachelorarbeit\Git\Ractive-2.0\Ractive_2\Assets\Scripts\Grammar\verbs.xml#Movement_Vb"/>
+		<ruleref uri="C:\Users\User 1\Documents\Bachelorarbeit\Git\Ractive-2.0\Ractive_2\Assets\Scripts\Grammar\adjectives.xml#IncreaseVelocity_Adj"/>
+		<item repeat="0-1"> please </item>
+		<item>
+			<tag> out.Action = "changeWalkingSpeedToFast"; </tag>
+		</item>
+	</rule>
+
+	<rule id="SetLines_Cmd" scope="public">
+		<example> please recite the blade runner monologue </example>
+		<example> play the saint crispins day speech please </example>
+		<example> try tears in rain </example>
+
+		<item repeat="0-1"> please </item>
+		<ruleref uri="C:\Users\User 1\Documents\Bachelorarbeit\Git\Ractive-2.0\Ractive_2\Assets\Scripts\Grammar\verbs.xml#Speaking_Vb_SimplePresent"/>
+		<item repeat="0-1"> the </item>
+		<ruleref uri="C:\Users\User 1\Documents\Bachelorarbeit\Git\Ractive-2.0\Ractive_2\Assets\Scripts\Grammar\Plays.xml#Monologues_Obj"/> <tag> out.AudioClip = rules.Monologues_Obj.Speech; </tag>
+		<item repeat="0-1">
+			<ruleref uri="C:\Users\User 1\Documents\Bachelorarbeit\Git\Ractive-2.0\Ractive_2\Assets\Scripts\Grammar\nouns.xml#TextType_Noun"/>
+		</item>
+		<item repeat="0-1"> please </item>
+	</rule>
+	
+	<rule id="SwitchToNextStoryBeat_Cmd" scope="public">
+		<example> then </example>
+		<example> afterwards </example>
+		<example> after that </example>
+
+		<item repeat="0-1"> please </item>
+		<ruleref uri="C:\Users\User 1\Documents\Bachelorarbeit\Git\Ractive-2.0\Ractive_2\Assets\Scripts\Grammar\adjectives.xml#Afterwards_Adj"/>
+		<item repeat="0-1"> please </item>
+		<item>
+			<tag> out.Action = "nextStoryBeat"; </tag>
+		</item>
+	</rule>
+
+	<rule id="PlayAudio_Cmd" scope="public">
+		<example> please begin reciting </example>
+		<example> start speaking </example>
+		<example> commence the speech please </example>
+
+		<item repeat="0-1"> please </item>
+		<ruleref uri="C:\Users\User 1\Documents\Bachelorarbeit\Git\Ractive-2.0\Ractive_2\Assets\Scripts\Grammar\verbs.xml#Begin_Vb"/>
+		<ruleref uri="C:\Users\User 1\Documents\Bachelorarbeit\Git\Ractive-2.0\Ractive_2\Assets\Scripts\Grammar\verbs.xml#Speaking_Vb_PresentProgressive"/>
+		<item repeat="0-1"> please </item>
+		<item>
+			<tag> out.Action = "playAudio"; </tag>
+		</item>
+	</rule>
+
+	<rule id="PauseAudio_Cmd" scope="public">
+		<example> please pause reciting </example>
+		<example> stop speaking </example>
+		<example> end the speech please </example>
+
+		<item repeat="0-1"> please </item>
+		<ruleref uri="C:\Users\User 1\Documents\Bachelorarbeit\Git\Ractive-2.0\Ractive_2\Assets\Scripts\Grammar\verbs.xml#End_Vb"/>
+		<ruleref uri="C:\Users\User 1\Documents\Bachelorarbeit\Git\Ractive-2.0\Ractive_2\Assets\Scripts\Grammar\verbs.xml#Speaking_Vb_PresentProgressive"/>
+		<item repeat="0-1"> please </item>
+		<item>
+			<tag> out.Action = "pauseAudio"; </tag>
+		</item>
+	</rule>
+
+</grammar>

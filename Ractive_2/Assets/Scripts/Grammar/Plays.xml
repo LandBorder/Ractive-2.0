@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<grammar version="1.0" xmlns="http://www.w3.org/2001/06/grammar"
+ xml:lang="en-US" tag-format="semantics/1.0">
+
+	<rule id = "Monologues_Obj" scope="public">
+		<one-of>
+			<item>
+				blade runner <tag> out.Speech = "tears_in_rain"; </tag>
+			</item>
+			<item>
+				tears in rain <tag> out.Speech = "tears_in_rain"; </tag>
+			</item>
+			<item>
+				saint crispins day <tag> out.Speech = "stCrispinsDay"; </tag>
+			</item>
+			<item>
+				henry the fifth <tag> out.Speech = "stCrispinsDay"; </tag>
+			</item>
+		</one-of>
+	</rule>
+
+</grammar>

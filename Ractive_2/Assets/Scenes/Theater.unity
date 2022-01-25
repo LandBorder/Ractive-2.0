@@ -124,6 +124,12 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!4 &307184896 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 400066, guid: 3786a1eabceea9b41a9e63873ef95ef5,
+    type: 3}
+  m_PrefabInstance: {fileID: 408356626}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &408356626
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -179,6 +185,86 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 13700000, guid: 3786a1eabceea9b41a9e63873ef95ef5, type: 3}
+      propertyPath: m_SelectedEditorRenderState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 13700000, guid: 3786a1eabceea9b41a9e63873ef95ef5, type: 3}
+      propertyPath: m_BlendShapeWeights.Array.size
+      value: 105
+      objectReference: {fileID: 0}
+    - target: {fileID: 13700000, guid: 3786a1eabceea9b41a9e63873ef95ef5, type: 3}
+      propertyPath: m_BlendShapeWeights.Array.data[1]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 13700000, guid: 3786a1eabceea9b41a9e63873ef95ef5, type: 3}
+      propertyPath: m_BlendShapeWeights.Array.data[2]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 13700000, guid: 3786a1eabceea9b41a9e63873ef95ef5, type: 3}
+      propertyPath: m_BlendShapeWeights.Array.data[3]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 13700000, guid: 3786a1eabceea9b41a9e63873ef95ef5, type: 3}
+      propertyPath: m_BlendShapeWeights.Array.data[4]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 13700000, guid: 3786a1eabceea9b41a9e63873ef95ef5, type: 3}
+      propertyPath: m_BlendShapeWeights.Array.data[7]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 13700000, guid: 3786a1eabceea9b41a9e63873ef95ef5, type: 3}
+      propertyPath: m_BlendShapeWeights.Array.data[40]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 13700000, guid: 3786a1eabceea9b41a9e63873ef95ef5, type: 3}
+      propertyPath: m_BlendShapeWeights.Array.data[55]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 13700000, guid: 3786a1eabceea9b41a9e63873ef95ef5, type: 3}
+      propertyPath: m_BlendShapeWeights.Array.data[56]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 13700000, guid: 3786a1eabceea9b41a9e63873ef95ef5, type: 3}
+      propertyPath: m_BlendShapeWeights.Array.data[57]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 13700000, guid: 3786a1eabceea9b41a9e63873ef95ef5, type: 3}
+      propertyPath: m_BlendShapeWeights.Array.data[59]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 13700000, guid: 3786a1eabceea9b41a9e63873ef95ef5, type: 3}
+      propertyPath: m_BlendShapeWeights.Array.data[68]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 13700000, guid: 3786a1eabceea9b41a9e63873ef95ef5, type: 3}
+      propertyPath: m_BlendShapeWeights.Array.data[69]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 13700000, guid: 3786a1eabceea9b41a9e63873ef95ef5, type: 3}
+      propertyPath: m_BlendShapeWeights.Array.data[89]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 13700000, guid: 3786a1eabceea9b41a9e63873ef95ef5, type: 3}
+      propertyPath: m_BlendShapeWeights.Array.data[90]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 13700000, guid: 3786a1eabceea9b41a9e63873ef95ef5, type: 3}
+      propertyPath: m_BlendShapeWeights.Array.data[91]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 13700000, guid: 3786a1eabceea9b41a9e63873ef95ef5, type: 3}
+      propertyPath: m_BlendShapeWeights.Array.data[94]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 13700000, guid: 3786a1eabceea9b41a9e63873ef95ef5, type: 3}
+      propertyPath: m_BlendShapeWeights.Array.data[95]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 13700000, guid: 3786a1eabceea9b41a9e63873ef95ef5, type: 3}
+      propertyPath: m_BlendShapeWeights.Array.data[96]
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 9500000, guid: 3786a1eabceea9b41a9e63873ef95ef5, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 3786a1eabceea9b41a9e63873ef95ef5, type: 3}
@@ -203,6 +289,9 @@ GameObject:
   - component: {fileID: 519896421}
   - component: {fileID: 519896420}
   - component: {fileID: 519896419}
+  - component: {fileID: 519896424}
+  - component: {fileID: 519896423}
+  - component: {fileID: 519896425}
   m_Layer: 0
   m_Name: Actor
   m_TagString: Untagged
@@ -338,6 +427,515 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &519896423
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519896415}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9036ca68e4aa8924a9003edadadd85a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isReady: 1
+  users:
+  - {fileID: 519896424}
+  - {fileID: 519896425}
+  _blendables:
+  - number: 0
+    currentWeight: 0
+  - number: 1
+    currentWeight: 0
+  - number: 2
+    currentWeight: 0
+  - number: 3
+    currentWeight: 0
+  - number: 4
+    currentWeight: 0
+  - number: 5
+    currentWeight: 0
+  - number: 6
+    currentWeight: 0
+  - number: 7
+    currentWeight: 0
+  - number: 8
+    currentWeight: 0
+  - number: 9
+    currentWeight: 0
+  - number: 10
+    currentWeight: 0
+  - number: 11
+    currentWeight: 0
+  - number: 12
+    currentWeight: 0
+  - number: 13
+    currentWeight: 0
+  - number: 14
+    currentWeight: 0
+  - number: 15
+    currentWeight: 0
+  - number: 16
+    currentWeight: 0
+  - number: 17
+    currentWeight: 0
+  - number: 18
+    currentWeight: 0
+  - number: 19
+    currentWeight: 0
+  - number: 20
+    currentWeight: 0
+  - number: 21
+    currentWeight: 0
+  - number: 22
+    currentWeight: 0
+  - number: 23
+    currentWeight: 0
+  - number: 24
+    currentWeight: 0
+  - number: 25
+    currentWeight: 0
+  - number: 26
+    currentWeight: 0
+  - number: 27
+    currentWeight: 0
+  - number: 28
+    currentWeight: 0
+  - number: 29
+    currentWeight: 0
+  - number: 30
+    currentWeight: 0
+  - number: 31
+    currentWeight: 0
+  - number: 32
+    currentWeight: 0
+  - number: 33
+    currentWeight: 0
+  - number: 34
+    currentWeight: 0
+  - number: 35
+    currentWeight: 0
+  - number: 36
+    currentWeight: 0
+  - number: 37
+    currentWeight: 0
+  - number: 38
+    currentWeight: 0
+  - number: 39
+    currentWeight: 0
+  - number: 40
+    currentWeight: 0
+  - number: 41
+    currentWeight: 0
+  - number: 42
+    currentWeight: 0
+  - number: 43
+    currentWeight: 0
+  - number: 44
+    currentWeight: 0
+  - number: 45
+    currentWeight: 0
+  - number: 46
+    currentWeight: 0
+  - number: 47
+    currentWeight: 0
+  - number: 48
+    currentWeight: 0
+  - number: 49
+    currentWeight: 0
+  - number: 50
+    currentWeight: 0
+  - number: 51
+    currentWeight: 0
+  - number: 52
+    currentWeight: 0
+  - number: 53
+    currentWeight: 0
+  - number: 54
+    currentWeight: 0
+  - number: 55
+    currentWeight: 0
+  - number: 56
+    currentWeight: 0
+  - number: 57
+    currentWeight: 0
+  - number: 58
+    currentWeight: 0
+  - number: 59
+    currentWeight: 0
+  - number: 60
+    currentWeight: 0
+  - number: 61
+    currentWeight: 0
+  - number: 62
+    currentWeight: 0
+  - number: 63
+    currentWeight: 0
+  - number: 64
+    currentWeight: 0
+  - number: 65
+    currentWeight: 0
+  - number: 66
+    currentWeight: 0
+  - number: 67
+    currentWeight: 0
+  - number: 68
+    currentWeight: 0
+  - number: 69
+    currentWeight: 0
+  - number: 70
+    currentWeight: 0
+  - number: 71
+    currentWeight: 0
+  - number: 72
+    currentWeight: 0
+  - number: 73
+    currentWeight: 0
+  - number: 74
+    currentWeight: 0
+  - number: 75
+    currentWeight: 0
+  - number: 76
+    currentWeight: 0
+  - number: 77
+    currentWeight: 0
+  - number: 78
+    currentWeight: 0
+  - number: 79
+    currentWeight: 0
+  - number: 80
+    currentWeight: 0
+  - number: 81
+    currentWeight: 0
+  - number: 82
+    currentWeight: 0
+  - number: 83
+    currentWeight: 0
+  - number: 84
+    currentWeight: 0
+  - number: 85
+    currentWeight: 0
+  - number: 86
+    currentWeight: 0
+  - number: 87
+    currentWeight: 0
+  - number: 88
+    currentWeight: 0
+  - number: 89
+    currentWeight: 0
+  - number: 90
+    currentWeight: 0
+  - number: 91
+    currentWeight: 0
+  - number: 92
+    currentWeight: 0
+  - number: 93
+    currentWeight: 0
+  - number: 94
+    currentWeight: 0
+  - number: 95
+    currentWeight: 0
+  - number: 96
+    currentWeight: 0
+  - number: 97
+    currentWeight: 0
+  - number: 98
+    currentWeight: 0
+  - number: 99
+    currentWeight: 0
+  - number: 100
+    currentWeight: 0
+  - number: 101
+    currentWeight: 0
+  - number: 102
+    currentWeight: 0
+  - number: 103
+    currentWeight: 0
+  - number: 104
+    currentWeight: 0
+  characterMesh: {fileID: 1901780588}
+  optionalOtherMeshes: []
+--- !u!114 &519896424
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519896415}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60953a4eedd70a246ab4eadbed9f0591, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blendSystem: {fileID: 519896423}
+  audioSource: {fileID: 1360456140}
+  useBones: 0
+  boneUpdateAnimation: 0
+  phonemes:
+  - blendShapes: 4400000059000000
+    blendableNames:
+    - Vip_Adam (0)
+    - Brow_Squeeze (1)
+    weights:
+    - 0
+    - 100
+    bones: []
+    verified: 1
+    phonemeName: AI
+    phoneme: 0
+  - blendShapes: 440000005a000000
+    blendableNames:
+    - Vip_Adam (0)
+    - Brow_Squeeze (1)
+    weights:
+    - 0
+    - 100
+    bones: []
+    verified: 1
+    phonemeName: E
+    phoneme: 0
+  - blendShapes: 440000003b00000060000000
+    blendableNames:
+    - Vip_Adam (0)
+    - Brow_Squeeze (1)
+    - BrowDownL (2)
+    weights:
+    - 18.2
+    - 8.4
+    - 100
+    bones: []
+    verified: 1
+    phonemeName: U
+    phoneme: 0
+  - blendShapes: 440000003b00000060000000
+    blendableNames:
+    - Vip_Adam (0)
+    - Brow_Squeeze (1)
+    - BrowDownL (2)
+    weights:
+    - 0
+    - 0
+    - 100
+    bones: []
+    verified: 1
+    phonemeName: O
+    phoneme: 0
+  - blendShapes: 44000000
+    blendableNames:
+    - Vip_Adam (0)
+    weights:
+    - 9.4
+    bones: []
+    verified: 1
+    phonemeName: CDGKNRSThYZ
+    phoneme: 0
+  - blendShapes: 3700000038000000440000005b000000
+    blendableNames:
+    - Vip_Adam (0)
+    - Brow_Squeeze (1)
+    - BrowDownL (2)
+    - BrowDownR (3)
+    weights:
+    - 0
+    - 0
+    - 0
+    - 49.1
+    bones: []
+    verified: 1
+    phonemeName: FV
+    phoneme: 0
+  - blendShapes: 5e000000
+    blendableNames:
+    - Vip_Adam (0)
+    weights:
+    - 100
+    bones: []
+    verified: 1
+    phonemeName: L
+    phoneme: 0
+  - blendShapes: 5f000000
+    blendableNames:
+    - BrowDownL (2)
+    weights:
+    - 100
+    bones: []
+    verified: 1
+    phonemeName: MBP
+    phoneme: 0
+  - blendShapes: 3b0000004400000060000000
+    blendableNames:
+    - Vip_Adam (0)
+    - Brow_Squeeze (1)
+    - BrowDownL (2)
+    weights:
+    - 11.3
+    - 0
+    - 100
+    bones: []
+    verified: 1
+    phonemeName: WQ
+    phoneme: 0
+  - blendShapes: 
+    blendableNames: []
+    weights: []
+    bones: []
+    verified: 1
+    phonemeName: Rest
+    phoneme: 0
+  emotions:
+  - blendShapes: 210000001500000016000000220000002300000007000000
+    blendableNames:
+    - Expr_Terror (33)
+    - Expr_Crying (21)
+    - Expr_Determination (22)
+    - Expr_Wink (34)
+    - EyeCloseL (35)
+    - CheeksDepth_0 (7)
+    weights:
+    - 100
+    - 60
+    - 58.1
+    - 23.4
+    - 18.1
+    - 100
+    bones: []
+    verified: 1
+    emotion: Happy
+  - blendShapes: 0c0000000d000000150000001600000024000000
+    blendableNames:
+    - ChinWidth_1 (12)
+    - EarsIn (13)
+    - Expr_Crying (21)
+    - Expr_Determination (22)
+    - EyeCloseR (36)
+    weights:
+    - 100
+    - 100
+    - 19.7
+    - 17
+    - 9.8
+    bones: []
+    verified: 1
+    emotion: Serious
+  - blendShapes: 0e0000000f0000000a0000000b0000001300000014000000
+    blendableNames:
+    - EarsOut (14)
+    - EarsSize (15)
+    - ChinSize_1 (10)
+    - ChinWidth_0 (11)
+    - Expr_Confused (19)
+    - Expr_Content (20)
+    weights:
+    - 100
+    - 100
+    - 13.5
+    - 13.5
+    - 29.5
+    - 30.3
+    bones: []
+    verified: 1
+    emotion: Eyebrows Up
+  - blendShapes: 240000000800000009000000
+    blendableNames:
+    - EyeCloseR (36)
+    - CheeksDepth_1 (8)
+    - ChinSize_0 (9)
+    weights:
+    - 70.8
+    - 47.9
+    - 46.9
+    bones: []
+    verified: 1
+    emotion: Sad
+  playOnAwake: 0
+  loop: 0
+  defaultClip: {fileID: 0}
+  defaultDelay: 0
+  scaleAudioSpeed: 1
+  m_animationTimingMode: 0
+  frameRate: 30
+  restTime: 0.2
+  restHoldTime: 0.4
+  phonemeCurveGenerationMode: 1
+  emotionCurveGenerationMode: 0
+  keepEmotionWhenFinished: 0
+  setNeutralBonePosesOnStart: 0
+  gesturesAnimator: {fileID: 0}
+  gesturesLayer: 0
+  gestures: []
+  onFinishedPlaying:
+    m_PersistentCalls:
+      m_Calls: []
+  lastUsedVersion: 1.531
+--- !u!114 &519896425
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519896415}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4c3c6345ee104b4695e6f7a2c098f3a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blendSystem: {fileID: 519896423}
+  blinkingEnabled: 1
+  blinkingControlMode: 0
+  blinkingShape:
+    blendShapes: 
+    blendableNames: []
+    weights: []
+    bones: []
+    verified: 1
+  leftEyeBlinkBlendable: 35
+  rightEyeBlinkBlendable: 36
+  minimumBlinkGap: 1.679365
+  maximumBlinkGap: 6.5746036
+  blinkDuration: 0.14
+  randomLookingEnabled: 1
+  lookingControlMode: 0
+  lookingUpShape:
+    blendShapes: 
+    blendableNames: []
+    weights: []
+    bones: []
+    verified: 1
+  lookingDownShape:
+    blendShapes: 
+    blendableNames: []
+    weights: []
+    bones: []
+    verified: 1
+  lookingLeftShape:
+    blendShapes: 
+    blendableNames: []
+    weights: []
+    bones: []
+    verified: 1
+  lookingRightShape:
+    blendShapes: 
+    blendableNames: []
+    weights: []
+    bones: []
+    verified: 1
+  _leftEyeLookAtBone: {fileID: 1761138888}
+  _rightEyeLookAtBone: {fileID: 307184896}
+  eyeRotationRangeX: {x: -6.5, y: 6.5}
+  eyeRotationRangeY: {x: -17.2, y: 17.2}
+  eyeLookOffset: {x: 0, y: 0, z: 0}
+  eyeForwardAxis: 4
+  eyeTurnSpeed: 18
+  minimumChangeDirectionGap: 1
+  maximumChangeDirectionGap: 6.2380953
+  targetEnabled: 0
+  autoTarget: 0
+  autoTargetTag: EyeControllerTarget
+  autoTargetDistance: 10
+  viewTarget: {fileID: 0}
+  targetWeight: 1
+  boneUpdateAnimation: 0
 --- !u!1 &541096545
 GameObject:
   m_ObjectHideFlags: 0
@@ -1102,6 +1700,7 @@ GameObject:
   - component: {fileID: 1360456139}
   - component: {fileID: 1360456140}
   - component: {fileID: 1360456141}
+  - component: {fileID: 1360456142}
   m_Layer: 0
   m_Name: AudioSource
   m_TagString: Untagged
@@ -1232,6 +1831,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioSource: {fileID: 1360456140}
+  lipSyncAvatar: {fileID: 519896424}
+  lipSyncLoader: {fileID: 1360456142}
+--- !u!114 &1360456142
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1360456138}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9dfba2f6b209e746baaf664b4b1c128, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _tearsInRainClip: {fileID: 11400000, guid: 19a85214efce5bb4eba6bf7bfaafefe5, type: 2}
+  _stCrispinsDayClip: {fileID: 11400000, guid: c0e9758e38f24604f8735dea93b3ba08, type: 2}
 --- !u!1 &1633336214
 GameObject:
   m_ObjectHideFlags: 0
@@ -1393,6 +2008,18 @@ MonoBehaviour:
   m_TrackingType: 0
   m_UpdateType: 0
   m_UseRelativeTransform: 0
+--- !u!4 &1761138888 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 400028, guid: 3786a1eabceea9b41a9e63873ef95ef5,
+    type: 3}
+  m_PrefabInstance: {fileID: 408356626}
+  m_PrefabAsset: {fileID: 0}
+--- !u!137 &1901780588 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 13700000, guid: 3786a1eabceea9b41a9e63873ef95ef5,
+    type: 3}
+  m_PrefabInstance: {fileID: 408356626}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1949593302
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<grammar version="1.0" xmlns="http://www.w3.org/2001/06/grammar"
+ xml:lang="en-US" tag-format="semantics/1.0">
+
+
+	<rule id = "Location_Noun" scope="public">
+		<one-of>
+			<item> there </item>
+			<item> over there </item>
+			<item> place </item>
+			<item> spot </item>
+			<item> location </item>
+		</one-of>
+	</rule>
+
+	<rule id = "TextType_Noun" scope="public">
+		<one-of>
+			<item> monologue </item>
+			<item> speech </item>
+			<item> text </item>
+			<item> lines </item>
+		</one-of>
+	</rule>
+		
+</grammar>

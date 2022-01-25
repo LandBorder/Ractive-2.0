@@ -1,26 +1,39 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using RogoDigital.Lipsync;
+using System.IO;
+using UnityEngine.Networking;
 
 public class AudioHandler : MonoBehaviour
 {
     public AudioSource audioSource;
+    public LipSync lipSyncAvatar;
+    public LipSyncLoader lipSyncLoader;
+
     private AudioClip _audioClip;
     private string _audioPath;
+    private LipSyncData _lipSyncClip;
 
     public void SetAudioClip(string audioName)
     {
-        _audioPath = "file://" + Application.streamingAssetsPath + "/Audio/";
-        StartCoroutine(LoadAudio(audioName));
+        _audioPath = "file://" + Directory.GetCurrentDirectory() + "/Assets/Audio/";
+        StartCoroutine(LoadAudio(audioName + ".wav"));
+
+        audioSource.clip = _audioClip;
+        _lipSyncClip = lipSyncLoader.GetClip(audioName);
     }
 
     public void StartAudioFile()
     {
-        audioSource.clip = _audioClip;
-
         if (!audioSource.isPlaying)
         {
             audioSource.Play();
+        }
+
+        if (_lipSyncClip != null)
+        {
+            lipSyncAvatar.Play(_lipSyncClip);
         }
     }
 
@@ -30,12 +43,18 @@ public class AudioHandler : MonoBehaviour
         {
             audioSource.Pause();
         }
+
+        if (lipSyncAvatar.IsPlaying)
+        {
+            lipSyncAvatar.Pause();
+        }
     }
 
     // Called on Cut!
     public void StopAudioFile()
     {
         audioSource.Stop();
+        //lipSyncAvatar.Stop(false);
     }
 
     private IEnumerator LoadAudio(string audioName)

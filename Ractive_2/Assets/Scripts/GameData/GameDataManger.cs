@@ -9,16 +9,13 @@ public class GameDataManger : MonoBehaviour
 
     public void Save()
     {
-        //TODO: Saving the choreography is broken again
-
-        //if(_choreographyHandlerIsSet) // <--- Error line
         if(choreographyHandler != null) 
         {
             choreographyHandler.Save();
         }
 
-        string json = JsonUtility.ToJson(_gameData);
-        WriteToFile(json);
+        //string json = JsonUtility.ToJson(_gameData);
+        //WriteToFile(json);
     }
 
     public void Load()
@@ -40,7 +37,7 @@ public class GameDataManger : MonoBehaviour
     {
         choreographyHandler.storyBeatList.Clear();
         choreographyHandler.Load(choreographyName);
-        choreographyHandler.audioHandler.SetAudioClip(choreographyName + ".wav");
+        choreographyHandler.audioHandler.SetAudioClip(choreographyName);
         Save();
     }
 
@@ -49,6 +46,7 @@ public class GameDataManger : MonoBehaviour
         Debug.Log(id + ": " + choreographyHandler.choreography.screenplay);
     }
 
+    // DELETE
     private void WriteToFile(string json)
     {
         string path = GetFilePath();
@@ -60,6 +58,7 @@ public class GameDataManger : MonoBehaviour
         }
     }
 
+    // DELETE
     private string ReadFromFile()
     {
         string path = GetFilePath();
@@ -81,6 +80,7 @@ public class GameDataManger : MonoBehaviour
         } 
     }
 
+    // DELETE
     private string GetFilePath()
     {
         string path = Directory.GetCurrentDirectory();

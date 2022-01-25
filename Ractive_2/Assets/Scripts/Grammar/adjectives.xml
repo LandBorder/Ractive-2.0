@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<grammar version="1.0" xmlns="http://www.w3.org/2001/06/grammar"
+ xml:lang="en-US" tag-format="semantics/1.0">
+
+
+	<rule id = "Afterwards_Adj" scope="public">
+		<one-of>
+			<item> then </item>
+			<item> afterwards </item>
+			<item> after that </item>
+			<item> thereupon </item>
+			<item> next </item>
+		</one-of>
+	</rule>
+
+	<rule id = "DecreaseVelocity_Adj" scope="public">
+		<one-of>
+			<item> slowly </item>
+			<item> not so fast </item>
+			<item> slower </item>
+			<item> slow </item>
+		</one-of>
+	</rule>
+
+	<rule id = "IncreaseVelocity_Adj" scope="public">
+		<one-of>
+			<item> quickly </item>
+			<item> not so slow </item>
+			<item> faster </item>
+			<item> fast </item>
+		</one-of>
+	</rule>
+
+	
+</grammar>
