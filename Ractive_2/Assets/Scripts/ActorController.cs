@@ -53,6 +53,7 @@ public class ActorController : MonoBehaviour
         MoveToNextStoryBeatCommand moveToNextStoryBeatCommand = new MoveToNextStoryBeatCommand(directions);
         StartAudioCommand startAudioCommand = new StartAudioCommand(directions);
         PauseAudioCommand pauseAudioCommand = new PauseAudioCommand(directions);
+        AddAnimationCommand addAnimationCommand = new AddAnimationCommand(directions);
 
         string grammarTag = null;
 
@@ -75,7 +76,7 @@ public class ActorController : MonoBehaviour
                     StartCoroutine(ExecuteCommandAfterSeconds(actionCommand, 1.5f));
                     break;
                 case "stopChoreography":
-                    stagelightingController.DectivateStageLighting();
+                    stagelightingController.DeactivateStageLighting();
                     invoker = new Invoker(cutCommand);
                     invoker.ExecuteCommand();
                     break;
@@ -110,6 +111,10 @@ public class ActorController : MonoBehaviour
                 case "pauseAudio":
                     invoker = new Invoker(pauseAudioCommand);
                     invoker.ExecuteCommand();
+                    break;
+                case "DropToKnees":
+                    invoker = new Invoker(addAnimationCommand);
+                    invoker.ExecuteCommandWithParameter(grammarTag);
                     break;
 
             }
