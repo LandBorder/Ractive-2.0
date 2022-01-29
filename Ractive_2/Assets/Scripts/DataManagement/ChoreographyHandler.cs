@@ -18,6 +18,7 @@ public class ChoreographyHandler : MonoBehaviour
     public List<StoryBeat> storyBeatList = new List<StoryBeat>();
     public StoryBeat currentStoryBeat;
     public AudioHandler audioHandler;
+    public AnimationHandler animationHandler;
 
     public enum AudioControlCommand { None, Start, Pause, Stop }
 
@@ -194,7 +195,10 @@ public class ChoreographyHandler : MonoBehaviour
             {
                 //ExecuteStoryBeat(actor, storyBeat);
                 yield return null;
-            } 
+            }
+
+            // Animation
+            animationHandler.TriggerAnimation(storyBeat.animationName);
         }
 
         Debug.Log("Finished executing StoryBeats");
