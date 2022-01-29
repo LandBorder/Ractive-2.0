@@ -3,8 +3,6 @@ using UnityEngine;
 
 public class GameDataManger : MonoBehaviour
 {
-    private GameData _gameData;
-
     public ChoreographyHandler choreographyHandler;
 
     public void Save()
@@ -13,18 +11,10 @@ public class GameDataManger : MonoBehaviour
         {
             choreographyHandler.Save();
         }
-
-        //string json = JsonUtility.ToJson(_gameData);
-        //WriteToFile(json);
     }
 
     public void Load()
     {
-       /* _gameData = new GameData();
-        string json = ReadFromFile();
-        JsonUtility.FromJsonOverwrite(json, _gameData);*/
-
-        //choreographyHandler = _gameData.currentChoreographyHandler;
         choreographyHandler = GameObject.FindObjectOfType<ChoreographyHandler>();
 
         if (choreographyHandler == null)
@@ -46,44 +36,4 @@ public class GameDataManger : MonoBehaviour
         Debug.Log(id + ": " + choreographyHandler.choreography.screenplay);
     }
 
-    // DELETE
-    private void WriteToFile(string json)
-    {
-        string path = GetFilePath();
-        FileStream fileStream = new FileStream(path, FileMode.Create);
-
-        using (StreamWriter writer = new StreamWriter(fileStream))
-        {
-            writer.Write(json);
-        }
-    }
-
-    // DELETE
-    private string ReadFromFile()
-    {
-        string path = GetFilePath();
-
-        if (!File.Exists(path))
-        {
-            Debug.LogWarning("GameData file not found!");
-            Debug.LogWarning("Creating new Game Data!");
-
-            _gameData.currentChoreographyHandler = choreographyHandler; // <- save guid (id changes at restart)
-            _gameData.choreographyHandlerName = choreographyHandler.name;
-            Save();
-        }
-
-        using (StreamReader reader = new StreamReader(path))
-        {
-            string json = reader.ReadToEnd();
-            return json;
-        } 
-    }
-
-    // DELETE
-    private string GetFilePath()
-    {
-        string path = Directory.GetCurrentDirectory();
-        return (path + "/Assets/Scripts/GameData/GameData.json");
-    }
 }
