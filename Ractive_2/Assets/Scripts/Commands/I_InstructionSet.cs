@@ -11,5 +11,6 @@ public interface I_InstructionSet
     public void MoveToNextStoryBeat();
     public void StartAudio();
     public void PauseAudio();
+    public void AddAnimation(string animationName);
 
 }

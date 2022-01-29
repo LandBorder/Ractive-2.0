@@ -2,23 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MoveToNextStoryBeatCommand : Command
+public class AddAnimationCommand : Command
 {
     I_InstructionSet instructionSet;
 
-    public MoveToNextStoryBeatCommand(I_InstructionSet newInstructionSet)
+    public AddAnimationCommand(I_InstructionSet newInstructionSet)
     {
         this.instructionSet = newInstructionSet;
     }
 
     public void Execute()
     {
-        instructionSet.MoveToNextStoryBeat();
+        throw new System.NotImplementedException();
     }
 
     public void ExecuteWithParameter(string s)
     {
-        throw new System.NotImplementedException();
+        instructionSet.AddAnimation(s);
     }
 
     public void Undo()

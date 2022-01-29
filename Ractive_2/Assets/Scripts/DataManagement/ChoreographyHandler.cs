@@ -18,6 +18,7 @@ public class ChoreographyHandler : MonoBehaviour
     public List<StoryBeat> storyBeatList = new List<StoryBeat>();
     public StoryBeat currentStoryBeat;
     public AudioHandler audioHandler;
+    public AnimationHandler animationHandler;
 
     public enum AudioControlCommand { None, Start, Pause, Stop }
 
@@ -194,7 +195,11 @@ public class ChoreographyHandler : MonoBehaviour
             {
                 //ExecuteStoryBeat(actor, storyBeat);
                 yield return null;
-            } 
+            }
+
+            // Animation
+            animationHandler.TriggerAnimation(storyBeat.animationName);
+
         }
 
         Debug.Log("Finished executing StoryBeats");
@@ -292,25 +297,25 @@ public class ChoreographyHandler : MonoBehaviour
      */
 
     private string GetFilePath()
-{
-    string path = Directory.GetCurrentDirectory();
-    return (path + "/Assets/Scripts/StoryBeats");
-}
-
-private string GetFilePath(string fileName)
-{
-    string path = Directory.GetCurrentDirectory();
-    return (path + "/Assets/Scripts/StoryBeats/" + fileName);
-}
-
-private static bool IsEmpty<StoryBeat>(List<StoryBeat> list)
-{
-    if (list == null)
     {
-        return true;
+        string path = Directory.GetCurrentDirectory();
+        return (path + "/Assets/Scripts/StoryBeats");
     }
 
-    return !list.Any();
-}
+    private string GetFilePath(string fileName)
+    {
+        string path = Directory.GetCurrentDirectory();
+        return (path + "/Assets/Scripts/StoryBeats/" + fileName);
+    }
+
+    private static bool IsEmpty<StoryBeat>(List<StoryBeat> list)
+    {
+        if (list == null)
+        {
+            return true;
+        }
+
+        return !list.Any();
+    }
 
 }

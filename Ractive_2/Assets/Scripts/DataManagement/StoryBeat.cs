@@ -15,17 +15,9 @@ public class StoryBeat
 
     public ChoreographyHandler.AudioControlCommand audioControlCommand;
 
+    public string animationName = "";
+
     // TODO: add
 
-    // animation
-
-    // speech audio
-
-    // speech LipSync
-
     // facial expression
-
-    // TODO: Come up with structure that allows saving a multitude of those entries. 
-    //       This story beat is one state, another state is the following state.
-    //       A multitude of story beats forms a choreography.
 }

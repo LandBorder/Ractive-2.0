@@ -292,6 +292,7 @@ GameObject:
   - component: {fileID: 519896424}
   - component: {fileID: 519896423}
   - component: {fileID: 519896425}
+  - component: {fileID: 519896426}
   m_Layer: 0
   m_Name: Actor
   m_TagString: Untagged
@@ -388,7 +389,7 @@ Animator:
   m_GameObject: {fileID: 519896415}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 3786a1eabceea9b41a9e63873ef95ef5, type: 3}
-  m_Controller: {fileID: 9100000, guid: e2cf68ff4b1ffda45a77f7307dd789b9, type: 2}
+  m_Controller: {fileID: 9100000, guid: f635df5d352922046b65892065540c2e, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -423,7 +424,7 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -936,6 +937,19 @@ MonoBehaviour:
   viewTarget: {fileID: 0}
   targetWeight: 1
   boneUpdateAnimation: 0
+--- !u!114 &519896426
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519896415}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a97d753613629e4ebe1b8f1496e667b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _animator: {fileID: 519896420}
 --- !u!1 &541096545
 GameObject:
   m_ObjectHideFlags: 0
@@ -1260,7 +1274,9 @@ MonoBehaviour:
     targetPosition: {x: 0, y: 0, z: 0}
     previousPosition: {x: 0, y: 0, z: 0}
     audioControlCommand: 0
+    animationName: 
   audioHandler: {fileID: 1360456141}
+  animationHandler: {fileID: 519896426}
 --- !u!4 &932980251
 Transform:
   m_ObjectHideFlags: 0

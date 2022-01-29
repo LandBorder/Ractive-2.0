@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<grammar version="1.0" xmlns="http://www.w3.org/2001/06/grammar"
+ xml:lang="en-US" tag-format="semantics/1.0">
+
+	<rule id = "Animations_Obj" scope="public">
+		<one-of>
+			<item>
+				fall on your knees <tag> out.Animation = "DropToKnees"; </tag>
+			</item>
+			<item>
+				drop to your knees <tag> out.Animation = "DropToKnees"; </tag>
+			</item>
+		</one-of>
+	</rule>
+
+</grammar>

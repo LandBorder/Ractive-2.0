@@ -19,7 +19,7 @@ public class StagelightingController : MonoBehaviour
         StartCoroutine(SwitchLightOnWithSound());
     }
 
-    public void DectivateStageLighting()
+    public void DeactivateStageLighting()
     {
         StartCoroutine(SwitchLightOffWithSound());
     }

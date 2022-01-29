@@ -5,5 +5,6 @@ using UnityEngine;
 public interface Command
 {
     public void Execute();
+    public void ExecuteWithParameter(string s);
     public void Undo();
 }

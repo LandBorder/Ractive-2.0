@@ -3,8 +3,6 @@ using UnityEngine;
 
 public class GameDataManger : MonoBehaviour
 {
-    private GameData _gameData;
-
     public ChoreographyHandler choreographyHandler;
 
     public void Save()
@@ -20,11 +18,6 @@ public class GameDataManger : MonoBehaviour
 
     public void Load()
     {
-       /* _gameData = new GameData();
-        string json = ReadFromFile();
-        JsonUtility.FromJsonOverwrite(json, _gameData);*/
-
-        //choreographyHandler = _gameData.currentChoreographyHandler;
         choreographyHandler = GameObject.FindObjectOfType<ChoreographyHandler>();
 
         if (choreographyHandler == null)
@@ -47,7 +40,7 @@ public class GameDataManger : MonoBehaviour
     }
 
     // DELETE
-    private void WriteToFile(string json)
+   /* private void WriteToFile(string json)
     {
         string path = GetFilePath();
         FileStream fileStream = new FileStream(path, FileMode.Create);
@@ -85,5 +78,5 @@ public class GameDataManger : MonoBehaviour
     {
         string path = Directory.GetCurrentDirectory();
         return (path + "/Assets/Scripts/GameData/GameData.json");
-    }
+    }*/
 }
