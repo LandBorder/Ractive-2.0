@@ -88,5 +88,6 @@ public class Directions : MonoBehaviour, I_InstructionSet
     {
         Debug.Log("Set animation " + animationName);
         _choreographyHandler.currentStoryBeat.animationName = animationName;
+        _gameDataManger.Save();
     }
 }
