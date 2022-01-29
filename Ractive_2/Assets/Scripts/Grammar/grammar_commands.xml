@@ -35,6 +35,9 @@
 			<item>
 				<ruleref uri="#PauseAudio_Cmd" />
 			</item>
+			<item>
+				<ruleref uri="C:\Users\User 1\Documents\Bachelorarbeit\Git\Ractive-2.0\Ractive_2\Assets\Scripts\Grammar\Animations.xml#Animations_Obj"/>
+			</item>
 		</one-of>
 	</rule>
 	
