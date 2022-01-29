@@ -16,6 +16,11 @@ public class Invoker
         command.Execute();
     }
 
+    public void ExecuteCommandWithParameter(string s)
+    {
+        command.ExecuteWithParameter(s);
+    }
+
     public void UndoCommand()
     {
         command.Undo();

@@ -16,6 +16,11 @@ public class StartAudioCommand : Command
         instructionSet.StartAudio();
     }
 
+    public void ExecuteWithParameter(string s)
+    {
+        throw new System.NotImplementedException();
+    }
+
     public void Undo()
     {
         throw new System.NotImplementedException();

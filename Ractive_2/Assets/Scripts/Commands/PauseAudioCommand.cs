@@ -16,6 +16,11 @@ public class PauseAudioCommand : Command
         instructionSet.PauseAudio();
     }
 
+    public void ExecuteWithParameter(string s)
+    {
+        throw new System.NotImplementedException();
+    }
+
     public void Undo()
     {
         throw new System.NotImplementedException();

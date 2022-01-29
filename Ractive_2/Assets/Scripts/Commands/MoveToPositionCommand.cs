@@ -16,6 +16,11 @@ public class MoveToPositionCommand : Command
         instructionSet.MoveToPosition();
     }
 
+    public void ExecuteWithParameter(string s)
+    {
+        throw new System.NotImplementedException();
+    }
+
     public void Undo()
     {
         instructionSet.MoveToPreviousPosition();

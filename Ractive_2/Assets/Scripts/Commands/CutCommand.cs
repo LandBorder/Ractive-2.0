@@ -15,6 +15,11 @@ public class CutCommand : Command
         instructionSet.StopChoreography();
     }
 
+    public void ExecuteWithParameter(string s)
+    {
+        throw new System.NotImplementedException();
+    }
+
     public void Undo()
     {
         throw new System.NotImplementedException();

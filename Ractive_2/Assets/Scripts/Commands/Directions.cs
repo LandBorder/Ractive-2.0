@@ -34,7 +34,6 @@ public class Directions : MonoBehaviour, I_InstructionSet
         UpdateGameData();
         _navMeshAgent.SetDestination(_choreographyHandler.currentStoryBeat.targetPosition);
         //_choreographyHandler.Execute(actor);
-  
     }
 
     public void StartChoreography()
@@ -83,5 +82,11 @@ public class Directions : MonoBehaviour, I_InstructionSet
         //_choreographyHandler.PauseAudio();
         _choreographyHandler.currentStoryBeat.audioControlCommand = ChoreographyHandler.AudioControlCommand.Pause;
         _gameDataManger.Save();
+    }
+
+    public void AddAnimation(string animationName)
+    {
+        Debug.Log("Set animation " + animationName);
+        _choreographyHandler.currentStoryBeat.animationName = animationName;
     }
 }
