@@ -1276,7 +1276,7 @@ MonoBehaviour:
     audioControlCommand: 0
     animationName: 
   audioHandler: {fileID: 1360456141}
-  animationHandler: {fileID: 519896426}
+  animationHandler: {fileID: 0}
 --- !u!4 &932980251
 Transform:
   m_ObjectHideFlags: 0

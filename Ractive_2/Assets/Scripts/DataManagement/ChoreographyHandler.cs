@@ -198,7 +198,8 @@ public class ChoreographyHandler : MonoBehaviour
             }
 
             // Animation
-            animationHandler.TriggerAnimation(storyBeat.animationName);
+            //animationHandler.TriggerAnimation(storyBeat.animationName);
+            animationHandler.PlayAnimation(storyBeat.animationName);
         }
 
         Debug.Log("Finished executing StoryBeats");

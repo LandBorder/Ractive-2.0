@@ -31,5 +31,12 @@
 		</one-of>
 	</rule>
 
+	<rule id = "Location_Adj" scope="public">
+		<one-of>
+			<item> at </item>
+			<item> on </item>
+		</one-of>
+	</rule>
+
 	
 </grammar>

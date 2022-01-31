@@ -56,6 +56,14 @@
 		</one-of>
 	</rule>
 
+	<rule id = "Stay_Vb" scope="public">
+		<one-of>
+			<item> stay </item>
+			<item> hold </item>
+			<item> keep </item>
+		</one-of>
+	</rule>
+
 	<rule id = "Stop_Vb" scope="public">
 		<one-of>
 			<item> cut </item>

@@ -5,10 +5,13 @@
 	<rule id = "Animations_Obj" scope="public">
 		<one-of>
 			<item>
-				fall on your knees <tag> out.Animation = "DropToKnees"; </tag>
+				fall on your knees <tag> out.Animation = "Animation_DropToKnees"; </tag>
 			</item>
 			<item>
-				drop to your knees <tag> out.Animation = "DropToKnees"; </tag>
+				drop to your knees <tag> out.Animation = "Animation_DropToKnees"; </tag>
+			</item>
+			<item>
+				put your hands up <tag> out.Animation = "Animation_HandsLayer.HandsUp"; </tag>
 			</item>
 		</one-of>
 	</rule>

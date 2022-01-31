@@ -10,4 +10,15 @@ public class AnimationHandler : MonoBehaviour
     {
         _animator.SetTrigger(animationName);
     }
+
+    public void PlayAnimation(string animationName)
+    {
+        //_animator.Play("Hands Layer." + animationName);
+        _animator.Play(animationName);
+    }
+
+    public void StopAnimation()
+    {
+        
+    }
 }

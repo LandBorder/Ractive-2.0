@@ -88,6 +88,9 @@ public class ActorController : MonoBehaviour
                     invoker = new Invoker(moveToPositionCommand);
                     invoker.UndoCommand();
                     break;
+                case "keepPosition":
+                    Debug.Log("Keep Position");
+                    break;
                 case "changeWalkingSpeedToSlow":
                     thirdPersonCharacter.m_onlyWalkingSpeed = true;
                     break;
@@ -112,9 +115,11 @@ public class ActorController : MonoBehaviour
                     invoker = new Invoker(pauseAudioCommand);
                     invoker.ExecuteCommand();
                     break;
-                case "DropToKnees":
+                case string a when a.Contains("Animation"):
                     invoker = new Invoker(addAnimationCommand);
-                    invoker.ExecuteCommandWithParameter(grammarTag);
+                    // Each animation tag begins with "Animation_" followed by the name of the animation.
+                    // The next line removes the beginning and passes only the name
+                    invoker.ExecuteCommandWithParameter(grammarTag.Remove(0, 10));
                     break;
 
             }

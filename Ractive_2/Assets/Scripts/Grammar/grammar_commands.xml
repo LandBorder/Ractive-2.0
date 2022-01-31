@@ -12,6 +12,9 @@
 				<ruleref uri="#MoveBack_Cmd" />
 			</item>
 			<item>
+				<ruleref uri="#KeepPosition_Cmd" />
+			</item>
+			<item>
 				<ruleref uri="#Start_Cmd" />
 			</item>
 			<item>
@@ -92,6 +95,24 @@
 		<item repeat="0-1"> please </item>
 		<item>
 			<tag> out.Action = "moveToPreviousPosition"; </tag>
+		</item>
+	</rule>
+
+	<rule id="KeepPosition_Cmd" scope="public">
+		<example> please stay there </example>
+		<example> keep this position </example>
+		<example> stay on this spot please </example>
+
+		<item repeat="0-1"> please </item>
+		<ruleref uri="C:\Users\User 1\Documents\Bachelorarbeit\Git\Ractive-2.0\Ractive_2\Assets\Scripts\Grammar\verbs.xml#Stay_Vb"/>
+		<item repeat="0-1">
+			<ruleref uri="C:\Users\User 1\Documents\Bachelorarbeit\Git\Ractive-2.0\Ractive_2\Assets\Scripts\Grammar\adjectives.xml#Location_Adj"/>
+		</item>
+		<item repeat="0-1"> this </item>
+		<ruleref uri="C:\Users\User 1\Documents\Bachelorarbeit\Git\Ractive-2.0\Ractive_2\Assets\Scripts\Grammar\nouns.xml#Location_Noun"/>
+		<item repeat="0-1"> please </item>
+		<item>
+			<tag> out.Action = "keepPosition"; </tag>
 		</item>
 	</rule>
 
