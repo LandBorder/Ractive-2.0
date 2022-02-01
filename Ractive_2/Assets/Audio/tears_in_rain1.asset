@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9f44607bd270d4f4eaa8869ed9b5b85c, type: 3}
-  m_Name: tears_in_rain
+  m_Name: tears_in_rain1
   m_EditorClassIdentifier: 
   clip: {fileID: 8300000, guid: 1877eac3cb33d1a4daa05ffb533deb9c, type: 3}
   phonemeData:
@@ -1096,7 +1096,7 @@ MonoBehaviour:
     boneRotationRandomness: 0.3
   - phoneme: 0
     phonemeNumber: 0
-    time: 0.6895447
+    time: 0.68979675
     intensity: 1
     sustain: 0
     useRandomness: 0
@@ -1106,7 +1106,7 @@ MonoBehaviour:
     boneRotationRandomness: 0.3
   - phoneme: 0
     phonemeNumber: 4
-    time: 0.69660395
+    time: 0.6968561
     intensity: 1
     sustain: 0
     useRandomness: 0
@@ -1296,7 +1296,7 @@ MonoBehaviour:
     boneRotationRandomness: 0.3
   - phoneme: 0
     phonemeNumber: 9
-    time: 0.85518664
+    time: 0.8549345
     intensity: 1
     sustain: 0
     useRandomness: 0
@@ -1306,7 +1306,7 @@ MonoBehaviour:
     boneRotationRandomness: 0.3
   - phoneme: 0
     phonemeNumber: 4
-    time: 0.8990553
+    time: 0.8988032
     intensity: 1
     sustain: 0
     useRandomness: 0
@@ -1316,7 +1316,7 @@ MonoBehaviour:
     boneRotationRandomness: 0.3
   - phoneme: 0
     phonemeNumber: 0
-    time: 0.9131739
+    time: 0.91292185
     intensity: 1
     sustain: 0
     useRandomness: 0
@@ -1326,7 +1326,7 @@ MonoBehaviour:
     boneRotationRandomness: 0.3
   - phoneme: 0
     phonemeNumber: 7
-    time: 0.92678833
+    time: 0.9265362
     intensity: 1
     sustain: 0
     useRandomness: 0
@@ -1384,76 +1384,8 @@ MonoBehaviour:
     blendableRandomness: 0.3
     bonePositionRandomness: 0.3
     boneRotationRandomness: 0.3
-  emotionData:
-  - emotion: 
-    isMixer: 1
-    mixer:
-      emotions: []
-      mixingMode: 0
-      displayColor: {r: 0, g: 0, b: 0, a: 1}
-    startTime: -0.0071428684
-    endTime: 0.1414288
-    blendInTime: 0
-    blendOutTime: 0
-    blendToMarker: 0
-    blendFromMarker: 0
-    customBlendIn: 0
-    customBlendOut: 0
-    intensity: 1
-    continuousVariation: 0
-    variationFrequency: 0.5
-    intensityVariation: 0.35
-    blendableVariation: 0.1
-    bonePositionVariation: 0.1
-    boneRotationVariation: 0.1
-    invalid: 0
-  - emotion: Sad
-    isMixer: 0
-    mixer:
-      emotions: []
-      mixingMode: 0
-      displayColor: {r: 0, g: 0, b: 0, a: 1}
-    startTime: 0.17
-    endTime: 0.8085714
-    blendInTime: 0
-    blendOutTime: -0.6085714
-    blendToMarker: 1
-    blendFromMarker: 0
-    customBlendIn: 0
-    customBlendOut: 0
-    intensity: 1
-    continuousVariation: 0
-    variationFrequency: 0.5
-    intensityVariation: 0.35
-    blendableVariation: 0.1
-    bonePositionVariation: 0.1
-    boneRotationVariation: 0.1
-    invalid: 0
-  - emotion: Happy
-    isMixer: 0
-    mixer:
-      emotions: []
-      mixingMode: 0
-      displayColor: {r: 0, g: 0, b: 0, a: 1}
-    startTime: 0.19999996
-    endTime: 0.99714285
-    blendInTime: 0.6085714
-    blendOutTime: 0
-    blendToMarker: 0
-    blendFromMarker: 1
-    customBlendIn: 0
-    customBlendOut: 0
-    intensity: 1
-    continuousVariation: 0
-    variationFrequency: 0.5
-    intensityVariation: 0.35
-    blendableVariation: 0.1
-    bonePositionVariation: 0.1
-    boneRotationVariation: 0.1
-    invalid: 0
-  gestureData:
-  - gesture: HandsUp
-    time: 0.33571428
+  emotionData: []
+  gestureData: []
   version: 1.531
   length: 19.831928
   transcript: "I\u2019ve seen things you people wouldn\u2019t believe. Attack ships

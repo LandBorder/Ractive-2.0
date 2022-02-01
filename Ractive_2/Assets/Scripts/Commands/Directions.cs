@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -53,13 +54,18 @@ public class Directions : MonoBehaviour, I_InstructionSet
         _choreographyHandler.StopAudio();
 
         _navMeshAgent.SetDestination(_navMeshAgent.transform.position);
+
+        AnimationHandler animationHandler = actor.GetComponent(typeof(AnimationHandler)) as AnimationHandler;
+        animationHandler.StopAnimation();
+
         _choreographyHandler.SetCurrentStoryBeatToStartOfChoreography();
     }
 
     public void MoveToPreviousPosition()
     {
         UpdateGameData();
-        _navMeshAgent.SetDestination(_choreographyHandler.currentStoryBeat.previousPosition);
+        _navMeshAgent.SetDestination(_choreographyHandler.storyBeatList.First().previousPosition);
+
     }
 
     private void UpdateGameData()
@@ -88,6 +94,14 @@ public class Directions : MonoBehaviour, I_InstructionSet
     {
         Debug.Log("Set animation " + animationName);
         _choreographyHandler.currentStoryBeat.animationName = animationName;
+        _gameDataManger.Save();
+        //actor.transform.LookAt(GameObject.Find("XRRig/Camera Offset/Main Camera").transform);
+    }
+
+    public void KeepPosition()
+    {
+        Debug.Log("Keep Position");
+        _choreographyHandler.currentStoryBeat.targetPosition = actor.transform.position;
         _gameDataManger.Save();
     }
 }

@@ -8,6 +8,7 @@ public interface I_InstructionSet
     public void StopChoreography();
     public void MoveToPosition();
     public void MoveToPreviousPosition();
+    public void KeepPosition();
     public void MoveToNextStoryBeat();
     public void StartAudio();
     public void PauseAudio();
