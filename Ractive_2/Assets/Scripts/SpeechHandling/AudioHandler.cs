@@ -35,6 +35,17 @@ public class AudioHandler : MonoBehaviour
         {
             lipSyncAvatar.Play(_lipSyncClip);
         }
+        /*
+        if (!audioSource.isPlaying)
+        {
+            audioSource.Play();
+        }
+
+        if (_lipSyncClip != null)
+        {
+            lipSyncAvatar.Play(_lipSyncClip);
+        }
+        */
     }
 
     public void PauseAudioFile()
