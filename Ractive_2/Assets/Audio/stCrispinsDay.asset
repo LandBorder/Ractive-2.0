@@ -516,7 +516,7 @@ MonoBehaviour:
     boneRotationRandomness: 0.3
   - phoneme: 0
     phonemeNumber: 9
-    time: 0.20828505
+    time: 0.20848043
     intensity: 1
     sustain: 0
     useRandomness: 0
@@ -526,7 +526,7 @@ MonoBehaviour:
     boneRotationRandomness: 0.3
   - phoneme: 0
     phonemeNumber: 8
-    time: 0.21219283
+    time: 0.21238822
     intensity: 1
     sustain: 0
     useRandomness: 0
@@ -1736,7 +1736,7 @@ MonoBehaviour:
     boneRotationRandomness: 0.3
   - phoneme: 0
     phonemeNumber: 9
-    time: 0.72782534
+    time: 0.7276299
     intensity: 1
     sustain: 0
     useRandomness: 0
@@ -2136,7 +2136,7 @@ MonoBehaviour:
     boneRotationRandomness: 0.3
   - phoneme: 0
     phonemeNumber: 9
-    time: 0.9089512
+    time: 0.9091466
     intensity: 1
     sustain: 0
     useRandomness: 0
@@ -2146,7 +2146,7 @@ MonoBehaviour:
     boneRotationRandomness: 0.3
   - phoneme: 0
     phonemeNumber: 4
-    time: 0.9171576
+    time: 0.917353
     intensity: 1
     sustain: 0
     useRandomness: 0
@@ -2304,7 +2304,29 @@ MonoBehaviour:
     blendableRandomness: 0.3
     bonePositionRandomness: 0.3
     boneRotationRandomness: 0.3
-  emotionData: []
+  emotionData:
+  - emotion: Angry
+    isMixer: 0
+    mixer:
+      emotions: []
+      mixingMode: 0
+      displayColor: {r: 0, g: 0, b: 0, a: 1}
+    startTime: 0.31142858
+    endTime: 0.7328571
+    blendInTime: 0.025
+    blendOutTime: -0.025
+    blendToMarker: 0
+    blendFromMarker: 0
+    customBlendIn: 1
+    customBlendOut: 1
+    intensity: 1
+    continuousVariation: 0
+    variationFrequency: 0.5
+    intensityVariation: 0.35
+    blendableVariation: 0.1
+    bonePositionVariation: 0.1
+    boneRotationVariation: 0.1
+    invalid: 0
   gestureData: []
   version: 1.531
   length: 25.589931
