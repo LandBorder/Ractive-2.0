@@ -117,9 +117,15 @@ public class ActorController : MonoBehaviour
                     invoker = new Invoker(pauseAudioCommand);
                     invoker.ExecuteCommand();
                     break;
-                case "DropToKnees":
+                /*case "DropToKnees":
                     invoker = new Invoker(addAnimationCommand);
                     invoker.ExecuteCommandWithParameter(grammarTag);
+                    break;*/
+                case string a when a.Contains("Animation"):
+                    invoker = new Invoker(addAnimationCommand);
+                    // Each animation tag begins with "Animation_" followed by the name of the animation.
+                    // The next line removes the beginning and passes only the name
+                    invoker.ExecuteCommandWithParameter(grammarTag.Remove(0, 10));
                     break;
 
             }
