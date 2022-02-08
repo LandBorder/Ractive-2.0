@@ -133,11 +133,15 @@ public class ChoreographyHandler : MonoBehaviour
         {
             currentStoryBeat = storyBeatList.SkipWhile(i => i != currentStoryBeat).Skip(1).FirstOrDefault();
 
+            //var indexOf = storyBeatList.IndexOf(currentStoryBeat);
+            //currentStoryBeat = storyBeatList[indexOf == storyBeatList.Count - 1 ? 0 : indexOf + 1];
+
             if (currentStoryBeat == null)
             {
-                Debug.Log("Creating new storybeat.");
+                //Debug.Log("Creating new storybeat.");
                 NewStoryBeat();
-                currentStoryBeat = storyBeatList.SkipWhile(i => i != currentStoryBeat).Skip(1).DefaultIfEmpty(storyBeatList[0]).FirstOrDefault();
+                //currentStoryBeat = storyBeatList.SkipWhile(i => i != currentStoryBeat).Skip(1).DefaultIfEmpty(storyBeatList[0]).FirstOrDefault();
+                currentStoryBeat = storyBeatList.LastOrDefault();
                 Save();
             }
         }
@@ -187,7 +191,7 @@ public class ChoreographyHandler : MonoBehaviour
             ControlAudio(storyBeat.audioControlCommand);
 
             // Movement
-            //Debug.Log("Target position: " + storyBeat.targetPosition);
+            Debug.Log("Target position: " + storyBeat.targetPosition);
             navMeshAgent.SetDestination(storyBeat.targetPosition);
 
             // Wait until the target position of the storybeat is reached

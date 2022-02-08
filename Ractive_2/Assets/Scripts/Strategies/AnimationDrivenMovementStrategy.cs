@@ -49,7 +49,7 @@ public class AnimationDrivenMovementStrategy : MovementStrategy
                 _gameDataManger.choreographyHandler.currentStoryBeat.previousPosition = navMeshAgent.transform.position;
                 _gameDataManger.choreographyHandler.currentStoryBeat.targetPosition = hit.point;
                 _gameDataManger.Save();
-                _gameDataManger.Display("Movement Strategy");
+                //_gameDataManger.Display("Target position set to " + hit.point);
             }
         }
 

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -23,6 +24,7 @@ public class Directions : MonoBehaviour, I_InstructionSet
     public void MoveToNextStoryBeat()
     {
         Debug.Log("Moving to next storybeat.");
+        //Debug.Log("Saved: " + _choreographyHandler.currentStoryBeat.targetPosition);
         _choreographyHandler.NextStoryBeat();
         Debug.Log("Current storybeat: " + _choreographyHandler.currentStoryBeat.name);
         _choreographyHandler.PrintStoryBeatList();
@@ -30,10 +32,9 @@ public class Directions : MonoBehaviour, I_InstructionSet
 
     public void MoveToPosition()
     {
-        Debug.Log("Moving to position.");
+        //Debug.Log("Moving to position.");
         UpdateGameData();
-        _navMeshAgent.SetDestination(_choreographyHandler.currentStoryBeat.targetPosition);
-        //_choreographyHandler.Execute(actor);
+        //_navMeshAgent.SetDestination(_choreographyHandler.currentStoryBeat.targetPosition);
     }
 
     public void StartChoreography()
@@ -59,7 +60,8 @@ public class Directions : MonoBehaviour, I_InstructionSet
     public void MoveToPreviousPosition()
     {
         UpdateGameData();
-        _navMeshAgent.SetDestination(_choreographyHandler.currentStoryBeat.previousPosition);
+       // _navMeshAgent.SetDestination(_choreographyHandler.currentStoryBeat.previousPosition);
+        _navMeshAgent.SetDestination(_choreographyHandler.storyBeatList.First().previousPosition);
     }
 
     private void UpdateGameData()
