@@ -54,6 +54,7 @@ public class ActorController : MonoBehaviour
         StartAudioCommand startAudioCommand = new StartAudioCommand(directions);
         PauseAudioCommand pauseAudioCommand = new PauseAudioCommand(directions);
         AddAnimationCommand addAnimationCommand = new AddAnimationCommand(directions);
+        KeepPositionCommand keepPositionCommand = new KeepPositionCommand(directions);
 
         string grammarTag = null;
 
@@ -87,6 +88,10 @@ public class ActorController : MonoBehaviour
                 case "moveToPreviousPosition":
                     invoker = new Invoker(moveToPositionCommand);
                     invoker.UndoCommand();
+                    break;
+                case "keepPosition":
+                    invoker = new Invoker(keepPositionCommand);
+                    invoker.ExecuteCommand();
                     break;
                 case "changeWalkingSpeedToSlow":
                     thirdPersonCharacter.m_onlyWalkingSpeed = true;
