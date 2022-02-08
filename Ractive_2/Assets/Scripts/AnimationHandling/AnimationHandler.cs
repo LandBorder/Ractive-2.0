@@ -10,4 +10,9 @@ public class AnimationHandler : MonoBehaviour
     {
         _animator.SetTrigger(animationName);
     }
+
+    public void StopAnimation()
+    {
+        _animator.SetTrigger("Cut");
+    }
 }
