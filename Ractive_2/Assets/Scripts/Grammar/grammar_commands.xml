@@ -39,6 +39,9 @@
 				<ruleref uri="#PauseAudio_Cmd" />
 			</item>
 			<item>
+				<ruleref uri="#FacialExpression_Cmd" />
+			</item>
+			<item>
 				<ruleref uri="C:\Users\User 1\Documents\Bachelorarbeit\Git\Ractive-2.0\Ractive_2\Assets\Scripts\Grammar\Animations.xml#Animations_Obj"/>
 			</item>
 		</one-of>
@@ -199,5 +202,19 @@
 			<tag> out.Action = "pauseAudio"; </tag>
 		</item>
 	</rule>
+
+	<rule id="FacialExpression_Cmd" scope="public">
+		<example> please show us more angriness </example>
+		<example> play with more detimernation </example>
+		<example> try some angriness please </example>
+
+		<item repeat="0-1"> please </item>
+		<ruleref uri="C:\Users\User 1\Documents\Bachelorarbeit\Git\Ractive-2.0\Ractive_2\Assets\Scripts\Grammar\verbs.xml#Show_Vb"/>
+		<item repeat="0-1"> more </item>
+		<item repeat="0-1"> some </item>
+		<ruleref uri="C:\Users\User 1\Documents\Bachelorarbeit\Git\Ractive-2.0\Ractive_2\Assets\Scripts\Grammar\FacialExpression.xml#FacialExpressions_Obj_Noun"/>
+		<item repeat="0-1"> please </item>
+	</rule>
+
 
 </grammar>

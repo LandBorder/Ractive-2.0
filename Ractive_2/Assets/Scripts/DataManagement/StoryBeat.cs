@@ -17,7 +17,6 @@ public class StoryBeat
 
     public string animationName = "";
 
-    // TODO: add
+    public string facialExpressionName = "";
 
-    // facial expression
 }

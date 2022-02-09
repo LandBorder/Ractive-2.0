@@ -30,6 +30,15 @@
 		</one-of>
 	</rule>
 
+	<rule id = "Show_Vb" scope="public">
+		<one-of>
+			<item> show us </item>
+			<item> display </item>
+			<item> play with </item>
+			<item> try </item>
+		</one-of>
+	</rule>
+
 	<rule id = "Speaking_Vb_SimplePresent" scope="public">
 		<one-of>
 			<item> say </item>

@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<grammar version="1.0" xmlns="http://www.w3.org/2001/06/grammar"
+ xml:lang="en-US" tag-format="semantics/1.0">
+
+	<rule id = "FacialExpressions_Obj_Noun" scope="public">
+		<one-of>
+			<item>
+				admiration <tag> out.Emotion = "FacialExpression_admiration"; </tag>
+			</item>
+			<item>
+				angriness <tag> out.Emotion = "FacialExpression_angry"; </tag>
+			</item>
+			<item>
+				confusion <tag> out.Emotion = "FacialExpression_confused"; </tag>
+			</item>
+			<item>
+				content <tag> out.Emotion = "FacialExpression_content"; </tag>
+			</item>
+			<item>
+				determination <tag> out.Emotion = "FacialExpression_determination"; </tag>
+			</item>
+			<item>
+				disgust <tag> out.Emotion = "FacialExpression_disgusted"; </tag>
+			</item>
+			<item>
+				drunkenness <tag> out.Emotion = "FacialExpression_drunken"; </tag>
+			</item>
+			<item>
+				enchantment <tag> out.Emotion = "FacialExpression_enchanting"; </tag>
+			</item>
+			<item>
+				fear <tag> out.Emotion = "FacialExpression_fear"; </tag>
+			</item>
+			<item>
+				happyness <tag> out.Emotion = "FacialExpression_happy"; </tag>
+			</item>
+			<item>
+				perplexion <tag> out.Emotion = "FacialExpression_perplexed"; </tag>
+			</item>
+			<item>
+				sadness <tag> out.Emotion = "FacialExpression_sad"; </tag>
+			</item>
+			<item>
+				terror <tag> out.Emotion = "FacialExpression_terror"; </tag>
+			</item>
+		</one-of>
+	</rule>
+
+</grammar>
