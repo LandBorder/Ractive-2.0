@@ -6,33 +6,60 @@ public class FigmentMovement : MonoBehaviour
 {
     private float _timeCounter;
     private GameObject _actor;
+    private Vector3 _initPos;
+    private Vector3 _movementDirection;
 
-    public float speed;
     public float circleWidth;
     public float circleHeight;
 
-    // Start is called before the first frame update
+    public bool movement;
+
     void Start()
     {
         _timeCounter = 0;
         _actor = GameObject.Find("Actor");
+        _initPos = transform.localPosition;
+        _movementDirection = Vector3.left;
 
-        speed = 0.5f;
         circleWidth = 0.6f;
         circleHeight = 0.2f;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        /*_timeCounter += Time.deltaTime * speed;
+        if (movement)
+        {
+            //LeftRightMovement(0.3f, 1.2f);
+            CircleMovement(0.4f);
+        }
+        else
+        {
+            transform.localPosition = _initPos;
+        }
+    }
 
-        float xOffsett = Mathf.Cos(_timeCounter) * circleWidth;
-        float yOffset = Mathf.Sin(_timeCounter) * circleHeight + 1.4f;
+    private void LeftRightMovement(float speed, float range)
+    {
+        if (transform.localPosition.x > range)
+        {
+            _movementDirection = Vector3.right;
+        }
+        if (transform.localPosition.x < ((-1f) * range))
+        {
+            _movementDirection = Vector3.left;
+        }
 
-        // Has to be in front of actor
-        float zOffset = (-1) + _actor.transform.position.z;
-        */
-        //transform.position = new Vector3(transform.position.x + xOffsett, transform.position.y + yOffset, transform.position.z + zOffset);
+        transform.Translate(_movementDirection * Time.deltaTime * speed);
+
+    }
+
+    private void CircleMovement(float speed)
+    {
+        _timeCounter += Time.deltaTime * speed;
+
+        float xOffset = Mathf.Cos(_timeCounter) * circleWidth;
+        float yOffset = Mathf.Sin(_timeCounter) * circleHeight;
+
+        transform.localPosition = (new Vector3(xOffset, yOffset + 1.4f, 1.67f));
     }
 }
