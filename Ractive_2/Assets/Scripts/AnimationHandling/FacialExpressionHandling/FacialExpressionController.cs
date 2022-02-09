@@ -2,11 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// TODO: Does not work as planned. It should stop as soon as the right expression value is reached. But it adjusts the value all the time.
+
 public class FacialExpressionController : MonoBehaviour
 {
-    private int _currentExpression;
+    [SerializeField] private int _currentExpression;
+    [SerializeField] private float _currentExpressionValue;
     [SerializeField] private int _newExpression;
-    [SerializeField] private int _expressionValue;
+    [SerializeField] private int _newExpressionValue;
 
     public SkinnedMeshRenderer skinnedMeshRenderer;
 
@@ -33,34 +36,54 @@ public class FacialExpressionController : MonoBehaviour
 
     void Start()
     {
-        //skinnedMeshRenderer.SetBlendShapeWeight(FacialExpressionsDictionary["stern"], 70); 
         _currentExpression = 0;
         _newExpression = 0;
+        _currentExpressionValue = 0;
     }
 
     private void Update()
     {
-       /* // Sets gradually new facial expression if currently no expression is set
+        // Sets gradually new facial expression if currently no expression is set
         if (_newExpression != 0 && _currentExpression == 0)
         {
-            skinnedMeshRenderer.SetBlendShapeWeight(_newExpression, Mathf.Lerp(skinnedMeshRenderer.GetBlendShapeWeight(_newExpression), _expressionValue, Time.deltaTime * 1f));
-            _currentExpression = _newExpression;
-        }
+            skinnedMeshRenderer.SetBlendShapeWeight(_newExpression, Mathf.Lerp(skinnedMeshRenderer.GetBlendShapeWeight(_newExpression), _newExpressionValue, Time.deltaTime * 1f));
 
+            // The interpolation will not lead to the excat value, therefore an epsilon is needed 
+            if (skinnedMeshRenderer.GetBlendShapeWeight(_newExpression) > (_newExpressionValue - 1.5f))
+            {
+                _currentExpression = _newExpression;
+                _currentExpressionValue = skinnedMeshRenderer.GetBlendShapeWeight(_newExpression);
+            }
+        }
         // Decreases current expression while increasing new expression
-        if (_newExpression != 0 && _currentExpression != 0 && _newExpression != _currentExpression)
+        else if (_newExpression != _currentExpression && _newExpression != 0 && _currentExpression != 0)
         {
             skinnedMeshRenderer.SetBlendShapeWeight(_currentExpression, Mathf.Lerp(0, skinnedMeshRenderer.GetBlendShapeWeight(_currentExpression), Time.deltaTime * 1f));
-            skinnedMeshRenderer.SetBlendShapeWeight(_newExpression, Mathf.Lerp(skinnedMeshRenderer.GetBlendShapeWeight(_newExpression), _expressionValue, Time.deltaTime * 1f));
-            _currentExpression = _newExpression;
-        }*/
+            skinnedMeshRenderer.SetBlendShapeWeight(_newExpression, Mathf.Lerp(skinnedMeshRenderer.GetBlendShapeWeight(_newExpression), _newExpressionValue, Time.deltaTime * 1f));
+
+            // The interpolation will not lead to the excat value, therefore an epsilon is needed 
+            if (skinnedMeshRenderer.GetBlendShapeWeight(_newExpression) > (_newExpressionValue - 1.5f))
+            {
+                _currentExpression = _newExpression;
+                _currentExpressionValue = skinnedMeshRenderer.GetBlendShapeWeight(_newExpression);
+            }
+        }
+        // Adjust value of current facial expression
+        else if(_newExpression == _currentExpression) // && (_newExpressionValue < (_currentExpressionValue - 1.5f) || _newExpressionValue > (_currentExpressionValue + 1.5f)))
+        {
+            skinnedMeshRenderer.SetBlendShapeWeight(_newExpression, Mathf.Lerp(skinnedMeshRenderer.GetBlendShapeWeight(_newExpression), _newExpressionValue, Time.deltaTime * 1f));
+
+            /*if (_newExpressionValue > (_currentExpressionValue - 1.5f) && _newExpressionValue < (_currentExpressionValue + 1.5f))
+            {
+                _currentExpressionValue = skinnedMeshRenderer.GetBlendShapeWeight(_newExpression);
+            }*/
+        }
     }
 
     public void SetFacialExpression(string expressionName, int expressionValue)
     {
-        //skinnedMeshRenderer.SetBlendShapeWeight(FacialExpressionsDictionary[expressionName], expressionValue);
         _newExpression = FacialExpressionsDictionary[expressionName];
-        _expressionValue = expressionValue;
+        _newExpressionValue = expressionValue;
     }
 
 }
