@@ -43,6 +43,18 @@
 			<item>
 				terror <tag> out.Emotion = "FacialExpression_terror"; </tag>
 			</item>
+			<item>
+				laughter <tag> out.Emotion = "FacialExpression_laughter"; </tag>
+			</item>
+			<item>
+				tears <tag> out.Emotion = "FacialExpression_crying"; </tag>
+			</item>
+			<item>
+				hardness <tag> out.Emotion = "FacialExpression_stern"; </tag>
+			</item>
+			<item>
+				insanity <tag> out.Emotion = "FacialExpression_maniacal"; </tag>
+			</item>
 		</one-of>
 	</rule>
 

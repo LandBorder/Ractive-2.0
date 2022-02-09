@@ -1258,8 +1258,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eaf3b4e478067d14a905149b35112815, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _currentExpression: 0
+  _currentExpressionValue: 0
   _newExpression: 0
-  _expressionValue: 0
+  _newExpressionValue: 0
   skinnedMeshRenderer: {fileID: 1901780588}
 --- !u!1 &541096545
 GameObject:
@@ -1733,8 +1735,10 @@ MonoBehaviour:
     previousPosition: {x: 0, y: 0, z: 0}
     audioControlCommand: 0
     animationName: 
+    facialExpressionName: 
   audioHandler: {fileID: 1360456141}
   animationHandler: {fileID: 519896426}
+  facialExpressionController: {fileID: 519896427}
 --- !u!4 &932980251
 Transform:
   m_ObjectHideFlags: 0

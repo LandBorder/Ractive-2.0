@@ -86,4 +86,11 @@ public class FacialExpressionController : MonoBehaviour
         _newExpressionValue = expressionValue;
     }
 
+    public void UndoFacialExpression()
+    {
+        _newExpressionValue = 0;
+        skinnedMeshRenderer.SetBlendShapeWeight(_currentExpression, 0);
+        skinnedMeshRenderer.SetBlendShapeWeight(_newExpression, 0);
+    }
+
 }

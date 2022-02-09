@@ -13,5 +13,6 @@ public interface I_InstructionSet
     public void StartAudio();
     public void PauseAudio();
     public void AddAnimation(string animationName);
+    public void AddFacialExpression(string animationName);
 
 }

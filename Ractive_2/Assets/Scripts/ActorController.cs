@@ -54,6 +54,7 @@ public class ActorController : MonoBehaviour
         StartAudioCommand startAudioCommand = new StartAudioCommand(directions);
         PauseAudioCommand pauseAudioCommand = new PauseAudioCommand(directions);
         AddAnimationCommand addAnimationCommand = new AddAnimationCommand(directions);
+        AddFacialExpressionCommand addFacialExpressionCommand = new AddFacialExpressionCommand(directions);
         KeepPositionCommand keepPositionCommand = new KeepPositionCommand(directions);
 
         string grammarTag = null;
@@ -117,15 +118,17 @@ public class ActorController : MonoBehaviour
                     invoker = new Invoker(pauseAudioCommand);
                     invoker.ExecuteCommand();
                     break;
-                /*case "DropToKnees":
-                    invoker = new Invoker(addAnimationCommand);
-                    invoker.ExecuteCommandWithParameter(grammarTag);
-                    break;*/
                 case string a when a.Contains("Animation"):
                     invoker = new Invoker(addAnimationCommand);
                     // Each animation tag begins with "Animation_" followed by the name of the animation.
                     // The next line removes the beginning and passes only the name
                     invoker.ExecuteCommandWithParameter(grammarTag.Remove(0, 10));
+                    break;
+                case string a when a.Contains("FacialExpression"):
+                    invoker = new Invoker(addFacialExpressionCommand);
+                    // Each facial expression tag begins with "FacialExpression_" followed by the name of the expression.
+                    // The next line removes the beginning and passes only the name
+                    invoker.ExecuteCommandWithParameter(grammarTag.Remove(0, 17));
                     break;
 
             }
