@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<grammar version="1.0" xmlns="http://www.w3.org/2001/06/grammar"
+ xml:lang="en-US" tag-format="semantics/1.0">
+
+
+	<rule id = "tears_in_rain" scope="public">
+		<one-of>
+			<item> I’ve <tag> out.Text = "Text_1"; </tag>
+		</item>
+			<item> seen <tag> out.Text = "Text_4"; </tag>
+		</item>
+			<item> things <tag> out.Text = "Text_8"; </tag>
+		</item>
+			<item> you <tag> out.Text = "Text_14"; </tag>
+		</item>
+			<item> people <tag> out.Text = "Text_17"; </tag>
+		</item>
+			<item> wouldn’t <tag> out.Text = "Text_22"; </tag>
+		</item>
+			<item> believe <tag> out.Text = "Text_28"; </tag>
+		</item>
+			<item> Attack <tag> out.Text = "Text_34"; </tag>
+		</item>
+			<item> ships <tag> out.Text = "Text_40"; </tag>
+		</item>
+			<item> on <tag> out.Text = "Text_45"; </tag>
+		</item>
+			<item> fire <tag> out.Text = "Text_47"; </tag>
+		</item>
+			<item> off <tag> out.Text = "Text_51"; </tag>
+		</item>
+			<item> the <tag> out.Text = "Text_54"; </tag>
+		</item>
+			<item> shoulder <tag> out.Text = "Text_57"; </tag>
+		</item>
+			<item> of <tag> out.Text = "Text_65"; </tag>
+		</item>
+			<item> Orion <tag> out.Text = "Text_67"; </tag>
+		</item>
+			<item> I <tag> out.Text = "Text_72"; </tag>
+		</item>
+			<item> watched <tag> out.Text = "Text_73"; </tag>
+		</item>
+			<item> C-beams <tag> out.Text = "Text_80"; </tag>
+		</item>
+			<item> glitter <tag> out.Text = "Text_86"; </tag>
+		</item>
+			<item> in <tag> out.Text = "Text_93"; </tag>
+		</item>
+			<item> the <tag> out.Text = "Text_94"; </tag>
+		</item>
+			<item> dark <tag> out.Text = "Text_97"; </tag>
+		</item>
+			<item> near <tag> out.Text = "Text_101"; </tag>
+		</item>
+			<item> the <tag> out.Text = "Text_105"; </tag>
+		</item>
+			<item> Tannhauser <tag> out.Text = "Text_108"; </tag>
+		</item>
+			<item> Gate <tag> out.Text = "Text_118"; </tag>
+		</item>
+			<item> All <tag> out.Text = "Text_122"; </tag>
+		</item>
+			<item> those <tag> out.Text = "Text_125"; </tag>
+		</item>
+			<item> moments <tag> out.Text = "Text_130"; </tag>
+		</item>
+			<item> will <tag> out.Text = "Text_136"; </tag>
+		</item>
+			<item> be <tag> out.Text = "Text_140"; </tag>
+		</item>
+			<item> lost <tag> out.Text = "Text_142"; </tag>
+		</item>
+			<item> in <tag> out.Text = "Text_146"; </tag>
+		</item>
+			<item> time <tag> out.Text = "Text_148"; </tag>
+		</item>
+			<item> like <tag> out.Text = "Text_152"; </tag>
+		</item>
+			<item> tears <tag> out.Text = "Text_156"; </tag>
+		</item>
+			<item> in <tag> out.Text = "Text_161"; </tag>
+		</item>
+			<item> rain <tag> out.Text = "Text_163"; </tag>
+		</item>
+			<item> Time <tag> out.Text = "Text_167"; </tag>
+		</item>
+			<item> to <tag> out.Text = "Text_171"; </tag>
+		</item>
+			<item> die <tag> out.Text = "Text_173"; </tag>
+		</item>
+		</one-of>
+	</rule>
+
+</grammar>

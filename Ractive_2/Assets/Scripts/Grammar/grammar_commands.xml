@@ -42,6 +42,9 @@
 				<ruleref uri="#FacialExpression_Cmd" />
 			</item>
 			<item>
+				<ruleref uri="#BindStoryBeatToText_Cmd" />
+			</item>
+			<item>
 				<ruleref uri="C:\Users\User 1\Documents\Bachelorarbeit\Git\Ractive-2.0\Ractive_2\Assets\Scripts\Grammar\Animations.xml#Animations_Obj"/>
 			</item>
 		</one-of>
@@ -214,6 +217,15 @@
 		<item repeat="0-1"> some </item>
 		<ruleref uri="C:\Users\User 1\Documents\Bachelorarbeit\Git\Ractive-2.0\Ractive_2\Assets\Scripts\Grammar\FacialExpression.xml#FacialExpressions_Obj_Noun"/>
 		<item repeat="0-1"> please </item>
+	</rule>
+
+	<rule id="BindStoryBeatToText_Cmd" scope="public">
+		<example> when you say Orion </example>
+		<example> when you say Tannhauser </example>
+		<example> when you say Time </example>
+		
+		<item> when you say </item>
+		<ruleref uri="C:\Users\User 1\Documents\Bachelorarbeit\Git\Ractive-2.0\Ractive_2\Assets\Scripts\Grammar\tears_in_rain.xml#tears_in_rain"/>
 	</rule>
 
 
