@@ -32,9 +32,9 @@ public class Directions : MonoBehaviour, I_InstructionSet
 
     public void MoveToPosition()
     {
-        //Debug.Log("Moving to position.");
+        Debug.Log("Moving to position.");
         UpdateGameData();
-        //_navMeshAgent.SetDestination(_choreographyHandler.currentStoryBeat.targetPosition);
+        _navMeshAgent.SetDestination(_choreographyHandler.currentStoryBeat.targetPosition);
     }
 
     public void StartChoreography()
@@ -52,6 +52,8 @@ public class Directions : MonoBehaviour, I_InstructionSet
         Debug.Log("Cut!");
 
         _choreographyHandler.StopAudio();
+        _choreographyHandler.animationHandler.StopAnimation();
+        _choreographyHandler.facialExpressionController.UndoFacialExpression();
 
         _navMeshAgent.SetDestination(_navMeshAgent.transform.position);
         _choreographyHandler.SetCurrentStoryBeatToStartOfChoreography();
@@ -90,6 +92,21 @@ public class Directions : MonoBehaviour, I_InstructionSet
     {
         Debug.Log("Set animation " + animationName);
         _choreographyHandler.currentStoryBeat.animationName = animationName;
+        _gameDataManger.Save();
+    }
+
+    public void KeepPosition()
+    {
+        Debug.Log("Keep Position");
+        _choreographyHandler.currentStoryBeat.targetPosition = actor.transform.position;
+        _gameDataManger.Save();
+    }
+
+    public void AddFacialExpression(string facialExpressionName)
+    {
+        Debug.Log("Set facial expression " + facialExpressionName);
+        _choreographyHandler.audioHandler.SetAudioClipWithEmotion(facialExpressionName);
+        _choreographyHandler.currentStoryBeat.facialExpressionName = facialExpressionName;
         _gameDataManger.Save();
     }
 }

@@ -19,6 +19,7 @@ public class ChoreographyHandler : MonoBehaviour
     public StoryBeat currentStoryBeat;
     public AudioHandler audioHandler;
     public AnimationHandler animationHandler;
+    public FacialExpressionController facialExpressionController;
 
     public enum AudioControlCommand { None, Start, Pause, Stop }
 
@@ -140,7 +141,6 @@ public class ChoreographyHandler : MonoBehaviour
             {
                 //Debug.Log("Creating new storybeat.");
                 NewStoryBeat();
-                //currentStoryBeat = storyBeatList.SkipWhile(i => i != currentStoryBeat).Skip(1).DefaultIfEmpty(storyBeatList[0]).FirstOrDefault();
                 currentStoryBeat = storyBeatList.LastOrDefault();
                 Save();
             }
@@ -191,7 +191,7 @@ public class ChoreographyHandler : MonoBehaviour
             ControlAudio(storyBeat.audioControlCommand);
 
             // Movement
-            Debug.Log("Target position: " + storyBeat.targetPosition);
+            //Debug.Log("Target position: " + storyBeat.targetPosition);
             navMeshAgent.SetDestination(storyBeat.targetPosition);
 
             // Wait until the target position of the storybeat is reached
@@ -202,7 +202,17 @@ public class ChoreographyHandler : MonoBehaviour
             }
 
             // Animation
-            animationHandler.TriggerAnimation(storyBeat.animationName);
+            if (storyBeat.animationName != "")
+            {
+                animationHandler.TriggerAnimation(storyBeat.animationName);
+            }
+
+            // Facial Expression
+            if (storyBeat.facialExpressionName != "")
+            {
+                facialExpressionController.SetFacialExpression(storyBeat.facialExpressionName, 70);
+            }
+
         }
 
         Debug.Log("Finished executing StoryBeats");
