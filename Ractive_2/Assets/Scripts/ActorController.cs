@@ -76,11 +76,11 @@ public class ActorController : MonoBehaviour
             switch (grammarTag)
             {
                 case "startChoreography":
-                    //stagelightingController.ActivateStageLighting();
+                    stagelightingController.ActivateStageLighting();
                     StartCoroutine(ExecuteCommandAfterSeconds(actionCommand, 1.5f));
                     break;
                 case "stopChoreography":
-                    //stagelightingController.DeactivateStageLighting();
+                    stagelightingController.DeactivateStageLighting();
                     invoker = new Invoker(cutCommand);
                     invoker.ExecuteCommand();
                     break;

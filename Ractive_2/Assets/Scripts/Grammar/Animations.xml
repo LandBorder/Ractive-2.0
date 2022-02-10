@@ -15,6 +15,9 @@
 				put your hands up <tag> out.Animation = "Animation_HandsUp"; </tag>
 			</item>
 			<item>
+				play a death scene <tag> out.Animation = "Animation_Death"; </tag>
+			</item>
+			<item>
 				don't do anything <tag> out.Animation = "Animation_"; </tag>
 			</item>
 		</one-of>

@@ -215,7 +215,7 @@ public class ChoreographyHandler : MonoBehaviour
             // Facial Expression
             if (storyBeat.facialExpressionName != "")
             {
-                facialExpressionController.SetFacialExpression(storyBeat.facialExpressionName, 70);
+                facialExpressionController.SetFacialExpression(storyBeat.facialExpressionName, 90);
             }
 
         }

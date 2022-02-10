@@ -60,7 +60,7 @@ public class LipSyncLoader : MonoBehaviour
             {
                 case "angry":
                 case "stern":
-                case "disgust":
+                case "disgusted":
                     //Debug.Log("Set Clip Fury");
                     return _stCrispinsDayClipAngry;
                 case "determination":

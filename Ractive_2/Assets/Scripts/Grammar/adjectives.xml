@@ -16,6 +16,7 @@
 	<rule id = "AtTheEnd_Adj" scope="public">
 		<one-of>
 			<item> at the end </item>
+			<item> in the end </item>
 			<item> lastly </item>
 			<item> after all of that </item>
 		</one-of>

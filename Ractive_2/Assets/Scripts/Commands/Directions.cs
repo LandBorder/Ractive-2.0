@@ -9,6 +9,7 @@ public class Directions : MonoBehaviour, I_InstructionSet
     private GameDataManger _gameDataManger;
     private ChoreographyHandler _choreographyHandler;
     private NavMeshAgent _navMeshAgent;
+    private Coroutine _executeCorutine;
 
     public GameObject actor;
     public AudioSource audioSource;
@@ -51,7 +52,7 @@ public class Directions : MonoBehaviour, I_InstructionSet
 
         UpdateGameData();
 
-        StartCoroutine(_choreographyHandler.Execute(actor));
+        _executeCorutine = StartCoroutine(_choreographyHandler.Execute(actor));
         _choreographyHandler.SetCurrentStoryBeatToStartOfChoreography();
     }
 
@@ -62,6 +63,11 @@ public class Directions : MonoBehaviour, I_InstructionSet
         _choreographyHandler.StopAudio();
         _choreographyHandler.animationHandler.StopAnimation();
         _choreographyHandler.facialExpressionController.UndoFacialExpression();
+
+        if (_executeCorutine != null)
+        {
+            StopCoroutine(_executeCorutine);
+        }
 
         _navMeshAgent.SetDestination(_navMeshAgent.transform.position);
         _choreographyHandler.SetCurrentStoryBeatToStartOfChoreography();

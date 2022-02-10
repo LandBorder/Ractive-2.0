@@ -176,6 +176,7 @@
 		<example> afterwards </example>
 		<example> after that </example>
 
+		<item repeat="0-1"> and </item>
 		<item repeat="0-1"> please </item>
 		<ruleref uri="C:\Users\User 1\Documents\Bachelorarbeit\Git\Ractive-2.0\Ractive_2\Assets\Scripts\Grammar\adjectives.xml#Afterwards_Adj"/>
 		<item repeat="0-1"> please </item>
