@@ -8,6 +8,7 @@ public class AnimationHandler : MonoBehaviour
 
     public void TriggerAnimation(string animationName)
     {
+        Debug.Log("Setting Trigger: " + animationName);
         _animator.SetTrigger(animationName);
     }
 

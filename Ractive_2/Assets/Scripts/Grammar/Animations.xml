@@ -3,6 +3,7 @@
  xml:lang="en-US" tag-format="semantics/1.0">
 
 	<rule id = "Animations_Obj" scope="public">
+		<item repeat="0-1"> please </item>
 		<one-of>
 			<item>
 				fall on your knees <tag> out.Animation = "Animation_DropToKnees"; </tag>
@@ -10,7 +11,14 @@
 			<item>
 				drop to your knees <tag> out.Animation = "Animation_DropToKnees"; </tag>
 			</item>
+			<item>
+				put your hands up <tag> out.Animation = "Animation_HandsUp"; </tag>
+			</item>
+			<item>
+				don't do anything <tag> out.Animation = "Animation_"; </tag>
+			</item>
 		</one-of>
+		<item repeat="0-1"> please </item>
 	</rule>
 
 </grammar>

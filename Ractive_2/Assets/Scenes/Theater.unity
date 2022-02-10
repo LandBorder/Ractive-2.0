@@ -1226,7 +1226,7 @@ MonoBehaviour:
   eyeTurnSpeed: 18
   minimumChangeDirectionGap: 1
   maximumChangeDirectionGap: 6.2380953
-  targetEnabled: 1
+  targetEnabled: 0
   autoTarget: 0
   autoTargetTag: EyeControllerTarget
   autoTargetDistance: 10
