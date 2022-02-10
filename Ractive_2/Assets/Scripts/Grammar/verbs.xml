@@ -12,6 +12,14 @@
 		</one-of>
 	</rule>
 
+	<rule id = "Delete_Vb" scope="public">
+		<one-of>
+			<item> scrap that </item>
+			<item> start all over again </item>
+			<item> forget that </item>
+		</one-of>
+	</rule>
+
 	<rule id = "End_Vb" scope="public">
 		<one-of>
 			<item> end </item>

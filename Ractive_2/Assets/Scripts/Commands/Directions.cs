@@ -67,6 +67,11 @@ public class Directions : MonoBehaviour, I_InstructionSet
         _choreographyHandler.SetCurrentStoryBeatToStartOfChoreography();
     }
 
+    public void DeleteChoreography()
+    {
+        _choreographyHandler.DeleteChoreography();
+    }
+
     public void MoveToPreviousPosition()
     {
         UpdateGameData();

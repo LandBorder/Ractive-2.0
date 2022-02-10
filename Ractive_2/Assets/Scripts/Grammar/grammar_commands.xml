@@ -36,6 +36,9 @@
 				<ruleref uri="#SwitchToLastStoryBeat_Cmd" />
 			</item>
 			<item>
+				<ruleref uri="#DeleteChoreography_Cmd" />
+			</item>
+			<item>
 				<ruleref uri="#PlayAudio_Cmd" />
 			</item>
 			<item>
@@ -192,6 +195,22 @@
 		<item repeat="0-1"> please </item>
 		<item>
 			<tag> out.Action = "lastStoryBeat"; </tag>
+		</item>
+	</rule>
+
+	<rule id="DeleteChoreography_Cmd" scope="public">
+		<example> scrap that </example>
+		<example> start all over again </example>
+		<example> forget that </example>
+
+		<item repeat="0-1"> okay </item>
+		<item repeat="0-1"> no </item>
+		<item repeat="0-1"> please </item>
+		<item repeat="0-1"> let's </item>
+		<ruleref uri="C:\Users\User 1\Documents\Bachelorarbeit\Git\Ractive-2.0\Ractive_2\Assets\Scripts\Grammar\verbs.xml#Delete_Vb"/>
+		<item repeat="0-1"> please </item>
+		<item>
+			<tag> out.Action = "deleteChoreography"; </tag>
 		</item>
 	</rule>
 

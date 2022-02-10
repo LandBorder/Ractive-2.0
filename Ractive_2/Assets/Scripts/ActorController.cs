@@ -49,6 +49,7 @@ public class ActorController : MonoBehaviour
     {
         ActionCommand actionCommand = new ActionCommand(directions);
         CutCommand cutCommand = new CutCommand(directions);
+        DeleteChoreographyCommand deleteChoreographyCommand = new DeleteChoreographyCommand(directions);
         MoveToPositionCommand moveToPositionCommand = new MoveToPositionCommand(directions);
         MoveToNextStoryBeatCommand moveToNextStoryBeatCommand = new MoveToNextStoryBeatCommand(directions);
         MoveToLastStoryBeatCommand moveToLastStoryBeatCommand = new MoveToLastStoryBeatCommand(directions);
@@ -75,12 +76,16 @@ public class ActorController : MonoBehaviour
             switch (grammarTag)
             {
                 case "startChoreography":
-                    stagelightingController.ActivateStageLighting();
+                    //stagelightingController.ActivateStageLighting();
                     StartCoroutine(ExecuteCommandAfterSeconds(actionCommand, 1.5f));
                     break;
                 case "stopChoreography":
-                    stagelightingController.DeactivateStageLighting();
+                    //stagelightingController.DeactivateStageLighting();
                     invoker = new Invoker(cutCommand);
+                    invoker.ExecuteCommand();
+                    break;
+                case "deleteChoreography":
+                    invoker = new Invoker(deleteChoreographyCommand);
                     invoker.ExecuteCommand();
                     break;
                 case "moveToPosition":

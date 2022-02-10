@@ -126,6 +126,11 @@ public class ChoreographyHandler : MonoBehaviour
         storyBeatList.Remove(itemToRemove);
     }
 
+    public void DeleteChoreography()
+    {
+        Debug.Log("Deleting " + choreography.screenplay);
+    }
+
     public void NextStoryBeat()
     {
         // Creates new storybeat when list reaches end

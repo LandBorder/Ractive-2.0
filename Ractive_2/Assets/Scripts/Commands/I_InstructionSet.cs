@@ -11,6 +11,7 @@ public interface I_InstructionSet
     public void KeepPosition();
     public void MoveToNextStoryBeat();
     public void MoveToLastStoryBeat();
+    public void DeleteChoreography();
     public void StartAudio();
     public void PauseAudio();
     public void AddAnimation(string animationName);
