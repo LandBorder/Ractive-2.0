@@ -231,6 +231,11 @@ public class ChoreographyHandler : MonoBehaviour
         currentStoryBeat = storyBeatList.First();
     }
 
+    public void SetCurrentStoryBeatToEndOfChoreography()
+    {
+        currentStoryBeat = storyBeatList.LastOrDefault();
+    }
+
     public void ControlAudio(ChoreographyHandler.AudioControlCommand enumMember)
     {
         switch (enumMember)

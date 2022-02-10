@@ -30,6 +30,14 @@ public class Directions : MonoBehaviour, I_InstructionSet
         _choreographyHandler.PrintStoryBeatList();
     }
 
+    public void MoveToLastStoryBeat()
+    {
+        Debug.Log("Moving to last storybeat.");
+        _choreographyHandler.SetCurrentStoryBeatToEndOfChoreography();
+        Debug.Log("Current storybeat: " + _choreographyHandler.currentStoryBeat.name);
+        _choreographyHandler.PrintStoryBeatList();
+    }
+
     public void MoveToPosition()
     {
         Debug.Log("Moving to position.");
@@ -105,8 +113,15 @@ public class Directions : MonoBehaviour, I_InstructionSet
     public void AddFacialExpression(string facialExpressionName)
     {
         Debug.Log("Set facial expression " + facialExpressionName);
-        _choreographyHandler.audioHandler.SetAudioClipWithEmotion(facialExpressionName);
+
+        ChangeAudioClipEmotion(facialExpressionName);
+        
         _choreographyHandler.currentStoryBeat.facialExpressionName = facialExpressionName;
         _gameDataManger.Save();
+    }
+
+    public void ChangeAudioClipEmotion(string emotionName)
+    {
+        _choreographyHandler.audioHandler.SetAudioClipWithEmotion(emotionName);
     }
 }

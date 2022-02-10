@@ -61,21 +61,21 @@ public class LipSyncLoader : MonoBehaviour
                 case "angry":
                 case "stern":
                 case "disgust":
-                    Debug.Log("Set Clip Fury");
+                    //Debug.Log("Set Clip Fury");
                     return _stCrispinsDayClipAngry;
                 case "determination":
                 case "maniacal":
-                    Debug.Log("Set Clip Battle");
+                    //Debug.Log("Set Clip Battle");
                     return _stCrispinsDayClipBattle;
                 case "admiration":
                 case "content":
                 case "enchanting":
                 case "happy":
                 case "laughter":
-                    Debug.Log("Set Clip Happy");
+                    //Debug.Log("Set Clip Happy");
                     return _stCrispinsDayClipHappy;
                 default:
-                    Debug.Log("Set Clip Serious");
+                    //Debug.Log("Set Clip Serious");
                     return _stCrispinsDayClip;
             }
         }

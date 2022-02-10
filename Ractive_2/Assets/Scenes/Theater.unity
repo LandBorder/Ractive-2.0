@@ -411,7 +411,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 13700000, guid: 3786a1eabceea9b41a9e63873ef95ef5, type: 3}
       propertyPath: m_BlendShapeWeights.Array.data[68]
-      value: 0
+      value: 5.5727234
       objectReference: {fileID: 0}
     - target: {fileID: 13700000, guid: 3786a1eabceea9b41a9e63873ef95ef5, type: 3}
       propertyPath: m_BlendShapeWeights.Array.data[69]
@@ -423,7 +423,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 13700000, guid: 3786a1eabceea9b41a9e63873ef95ef5, type: 3}
       propertyPath: m_BlendShapeWeights.Array.data[90]
-      value: 0
+      value: 42.538177
       objectReference: {fileID: 0}
     - target: {fileID: 13700000, guid: 3786a1eabceea9b41a9e63873ef95ef5, type: 3}
       propertyPath: m_BlendShapeWeights.Array.data[91]
@@ -878,7 +878,7 @@ MonoBehaviour:
   - number: 67
     currentWeight: 0
   - number: 68
-    currentWeight: 0
+    currentWeight: 5.5727234
   - number: 69
     currentWeight: 0
   - number: 70
@@ -922,7 +922,7 @@ MonoBehaviour:
   - number: 89
     currentWeight: 0
   - number: 90
-    currentWeight: 0
+    currentWeight: 42.538177
   - number: 91
     currentWeight: 0
   - number: 92
@@ -2394,7 +2394,13 @@ MonoBehaviour:
     type: 2}
   _tearsInRainClipContent: {fileID: 11400000, guid: 6f9f3caf0595abc46b3b49ef39b2f34c,
     type: 2}
-  _stCrispinsDayClip: {fileID: 11400000, guid: c0e9758e38f24604f8735dea93b3ba08, type: 2}
+  _stCrispinsDayClip: {fileID: 11400000, guid: e2a3c8a7104eedd489853a7e2e0ccd7a, type: 2}
+  _stCrispinsDayClipHappy: {fileID: 11400000, guid: 9cd3f15702abbbd4d89478c8082c299b,
+    type: 2}
+  _stCrispinsDayClipBattle: {fileID: 11400000, guid: c0e9758e38f24604f8735dea93b3ba08,
+    type: 2}
+  _stCrispinsDayClipAngry: {fileID: 11400000, guid: e58e1319f46d316429d29381503ba18c,
+    type: 2}
 --- !u!4 &1383233411 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400112, guid: 3786a1eabceea9b41a9e63873ef95ef5,

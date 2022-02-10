@@ -13,6 +13,14 @@
 		</one-of>
 	</rule>
 
+	<rule id = "AtTheEnd_Adj" scope="public">
+		<one-of>
+			<item> at the end </item>
+			<item> lastly </item>
+			<item> after all of that </item>
+		</one-of>
+	</rule>
+
 	<rule id = "DecreaseVelocity_Adj" scope="public">
 		<one-of>
 			<item> slowly </item>

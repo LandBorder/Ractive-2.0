@@ -10,9 +10,10 @@ public interface I_InstructionSet
     public void MoveToPreviousPosition();
     public void KeepPosition();
     public void MoveToNextStoryBeat();
+    public void MoveToLastStoryBeat();
     public void StartAudio();
     public void PauseAudio();
     public void AddAnimation(string animationName);
-    public void AddFacialExpression(string animationName);
+    public void AddFacialExpression(string emotionName);
 
 }

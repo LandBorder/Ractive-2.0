@@ -51,6 +51,7 @@ public class ActorController : MonoBehaviour
         CutCommand cutCommand = new CutCommand(directions);
         MoveToPositionCommand moveToPositionCommand = new MoveToPositionCommand(directions);
         MoveToNextStoryBeatCommand moveToNextStoryBeatCommand = new MoveToNextStoryBeatCommand(directions);
+        MoveToLastStoryBeatCommand moveToLastStoryBeatCommand = new MoveToLastStoryBeatCommand(directions);
         StartAudioCommand startAudioCommand = new StartAudioCommand(directions);
         PauseAudioCommand pauseAudioCommand = new PauseAudioCommand(directions);
         AddAnimationCommand addAnimationCommand = new AddAnimationCommand(directions);
@@ -108,6 +109,10 @@ public class ActorController : MonoBehaviour
                     break;
                 case "nextStoryBeat":
                     invoker = new Invoker(moveToNextStoryBeatCommand);
+                    invoker.ExecuteCommand();
+                    break;
+                case "lastStoryBeat":
+                    invoker = new Invoker(moveToLastStoryBeatCommand);
                     invoker.ExecuteCommand();
                     break;
                 case "playAudio":
