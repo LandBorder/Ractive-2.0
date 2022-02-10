@@ -213,6 +213,7 @@
 
 		<item repeat="0-1"> please </item>
 		<ruleref uri="C:\Users\User 1\Documents\Bachelorarbeit\Git\Ractive-2.0\Ractive_2\Assets\Scripts\Grammar\verbs.xml#Show_Vb"/>
+		<item repeat="0-1"> a bit </item>
 		<item repeat="0-1"> more </item>
 		<item repeat="0-1"> some </item>
 		<ruleref uri="C:\Users\User 1\Documents\Bachelorarbeit\Git\Ractive-2.0\Ractive_2\Assets\Scripts\Grammar\FacialExpression.xml#FacialExpressions_Obj_Noun"/>

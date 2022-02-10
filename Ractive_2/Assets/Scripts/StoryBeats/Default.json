@@ -1,1 +1,1 @@
-{"screenplay":"Default","speechAudioClip":{"instanceID":0},"storyBeatList":[{"name":"SB_Default_1","targetPosition":{"x":0.0,"y":0.0,"z":0.0},"previousPosition":{"x":0.0,"y":0.0,"z":0.0},"audioControlCommand":0,"animationName":""}]}
+{"screenplay":"Default","speechAudioClip":{"instanceID":0},"storyBeatList":[{"name":"SB_Default_1","targetPosition":{"x":0.0,"y":0.0,"z":0.0},"previousPosition":{"x":0.0,"y":0.0,"z":0.0},"audioControlCommand":0,"animationName":"","facialExpressionName":""}]}

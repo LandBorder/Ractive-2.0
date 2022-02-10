@@ -1,11 +1,11 @@
 fileFormatVersion: 2
-guid: 4fd637313dc33514280ab260e98a6af2
+guid: f855de20aa3a27749b5e3e0c541f3804
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable:
   - first:
       1: 100000
-    second: 120_07
+    second: 142_22
   - first:
       1: 100002
     second: //RootNode
@@ -140,7 +140,7 @@ ModelImporter:
     second: rThumb2
   - first:
       4: 400000
-    second: 120_07
+    second: 142_22
   - first:
       4: 400002
     second: //RootNode
@@ -275,7 +275,7 @@ ModelImporter:
     second: rThumb2
   - first:
       74: 7400000
-    second: 120_07
+    second: 142_22
   - first:
       95: 9500000
     second: //RootNode
@@ -306,36 +306,7 @@ ModelImporter:
     animationWrapMode: 0
     extraExposedTransformPaths: []
     extraUserProperties: []
-    clipAnimations:
-    - serializedVersion: 16
-      name: 120_07
-      takeName: 120_07
-      internalID: 0
-      firstFrame: 0
-      lastFrame: 222
-      wrapMode: 0
-      orientationOffsetY: 0
-      level: 0
-      cycleOffset: 0
-      loop: 0
-      hasAdditiveReferencePose: 0
-      loopTime: 0
-      loopBlend: 0
-      loopBlendOrientation: 1
-      loopBlendPositionY: 1
-      loopBlendPositionXZ: 0
-      keepOriginalOrientation: 0
-      keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 0
-      heightFromFeet: 0
-      mirror: 0
-      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-      curves: []
-      events: []
-      transformMask: []
-      maskType: 3
-      maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
+    clipAnimations: []
     isReadable: 1
   meshes:
     lODScreenPercentages: []
@@ -711,12 +682,12 @@ ModelImporter:
         length: 0
         modified: 0
     skeleton:
-    - name: 120_07(Clone)
+    - name: 142_22(Clone)
       parentName: 
       position: {x: 0, y: 0, z: 0}
       rotation: {x: 0, y: 0, z: 0, w: 1}
       scale: {x: 1, y: 1, z: 1}
-    - name: 120_07
+    - name: 142_22
       parentName: 
       position: {x: 0, y: 0, z: 0}
       rotation: {x: -0.7071069, y: 0, z: -0, w: 0.70710677}

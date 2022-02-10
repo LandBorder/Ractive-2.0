@@ -11,6 +11,8 @@ public class FacialExpressionController : MonoBehaviour
     [SerializeField] private int _newExpression;
     [SerializeField] private int _newExpressionValue;
 
+    private bool _isNewFacialExpressionSet;
+
     public SkinnedMeshRenderer skinnedMeshRenderer;
 
     Dictionary<string, int> FacialExpressionsDictionary = new Dictionary<string, int>()
@@ -39,6 +41,7 @@ public class FacialExpressionController : MonoBehaviour
         _currentExpression = 0;
         _newExpression = 0;
         _currentExpressionValue = 0;
+        _isNewFacialExpressionSet = false;
     }
 
     private void Update()
@@ -62,14 +65,14 @@ public class FacialExpressionController : MonoBehaviour
             skinnedMeshRenderer.SetBlendShapeWeight(_newExpression, Mathf.Lerp(skinnedMeshRenderer.GetBlendShapeWeight(_newExpression), _newExpressionValue, Time.deltaTime * 1f));
 
             // The interpolation will not lead to the excat value, therefore an epsilon is needed 
-            if (skinnedMeshRenderer.GetBlendShapeWeight(_newExpression) > (_newExpressionValue - 1.5f))
+            if (skinnedMeshRenderer.GetBlendShapeWeight(_newExpression) > (_newExpressionValue - 1.5f) && skinnedMeshRenderer.GetBlendShapeWeight(_currentExpression) < 1f)
             {
                 _currentExpression = _newExpression;
                 _currentExpressionValue = skinnedMeshRenderer.GetBlendShapeWeight(_newExpression);
             }
         }
         // Adjust value of current facial expression
-        else if(_newExpression == _currentExpression) // && (_newExpressionValue < (_currentExpressionValue - 1.5f) || _newExpressionValue > (_currentExpressionValue + 1.5f)))
+        else if (_newExpression == _currentExpression) // && (_newExpressionValue < (_currentExpressionValue - 1.5f) || _newExpressionValue > (_currentExpressionValue + 1.5f)))
         {
             skinnedMeshRenderer.SetBlendShapeWeight(_newExpression, Mathf.Lerp(skinnedMeshRenderer.GetBlendShapeWeight(_newExpression), _newExpressionValue, Time.deltaTime * 1f));
 
@@ -78,6 +81,20 @@ public class FacialExpressionController : MonoBehaviour
                 _currentExpressionValue = skinnedMeshRenderer.GetBlendShapeWeight(_newExpression);
             }*/
         }
+
+
+        /*if (_newExpression != 0 && _currentExpression == 0 && (!_isNewFacialExpressionSet))
+        {
+            _currentExpression = _newExpression;
+            skinnedMeshRenderer.SetBlendShapeWeight(_currentExpression, Mathf.Lerp(skinnedMeshRenderer.GetBlendShapeWeight(_currentExpression), _newExpressionValue, Time.deltaTime * 1f));
+
+            // The interpolation will not lead to the excat value, therefore an epsilon is needed 
+            if (skinnedMeshRenderer.GetBlendShapeWeight(_currentExpression) > (_newExpressionValue - 1.5f))
+            {
+                _currentExpressionValue = skinnedMeshRenderer.GetBlendShapeWeight(_currentExpression);
+                _isNewFacialExpressionSet = true;
+            }
+        }*/
     }
 
     public void SetFacialExpression(string expressionName, int expressionValue)

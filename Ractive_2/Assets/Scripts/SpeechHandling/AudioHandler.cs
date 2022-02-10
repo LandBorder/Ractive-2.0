@@ -11,25 +11,32 @@ public class AudioHandler : MonoBehaviour
     public LipSync lipSyncAvatar;
     public LipSyncLoader lipSyncLoader;
 
+    private string _currentScreenplay;
     private AudioClip _audioClip;
     private string _audioPath;
     private LipSyncData _lipSyncClip;
 
     public void SetAudioClip(string audioName)
     {
-        _audioPath = "file://" + Directory.GetCurrentDirectory() + "/Assets/Audio/";
-        StartCoroutine(LoadAudio(audioName + ".wav"));
+        /*_audioPath = "file://" + Directory.GetCurrentDirectory() + "/Assets/Audio/" + audioName + "/";
+        StartCoroutine(LoadAudio("normal.wav"));
 
-        audioSource.clip = _audioClip;
+        audioSource.clip = _audioClip;*/
+        _currentScreenplay = audioName;
         _lipSyncClip = lipSyncLoader.GetClip(audioName);
+    }
+
+    public void SetAudioClipWithEmotion(string emotionName)
+    {
+        _lipSyncClip = lipSyncLoader.GetClipWithEmotion(_currentScreenplay, emotionName);
     }
 
     public void StartAudioFile()
     {
-        if (!audioSource.isPlaying)
+        /*if (!audioSource.isPlaying)
         {
             audioSource.Play();
-        }
+        }*/
 
         if (_lipSyncClip != null)
         {

@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9f44607bd270d4f4eaa8869ed9b5b85c, type: 3}
-  m_Name: tears_in_rain
+  m_Name: normal
   m_EditorClassIdentifier: 
   clip: {fileID: 8300000, guid: 1877eac3cb33d1a4daa05ffb533deb9c, type: 3}
   phonemeData:
